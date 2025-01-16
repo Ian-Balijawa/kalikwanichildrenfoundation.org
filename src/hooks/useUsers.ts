@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import useRequest from './useRequest';
-import { User, ROLE } from '@/types/api';
+import { User } from '@/types/api';
+import { ROLE } from '@/types/enums';
 
 type UpdateUserInput = Partial<User>;
 type CreateUserInput = Partial<User>;
@@ -25,8 +26,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-01-01",
 		updatedAt: "2024-01-15",
-		isOnDuty: true,
-		isOnLeave: false,
 	},
 	{
 		id: "2",
@@ -44,8 +43,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-02-15",
 		updatedAt: "2024-01-15",
-		isOnDuty: true,
-		isOnLeave: false,
 	},
 	{
 		id: "3",
@@ -63,8 +60,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-03-10",
 		updatedAt: "2024-01-15",
-		isOnDuty: false,
-		isOnLeave: true,
 	},
 	{
 		id: "4",
@@ -82,8 +77,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-04-20",
 		updatedAt: "2024-01-14",
-		isOnDuty: false,
-		isOnLeave: false,
 	},
 	{
 		id: "5",
@@ -101,8 +94,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-05-05",
 		updatedAt: "2024-01-15",
-		isOnDuty: true,
-		isOnLeave: false,
 	},
 	{
 		id: "6",
@@ -120,8 +111,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-06-15",
 		updatedAt: "2024-01-13",
-		isOnDuty: false,
-		isOnLeave: false,
 	},
 	{
 		id: "7",
@@ -139,8 +128,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-07-01",
 		updatedAt: "2024-01-15",
-		isOnDuty: true,
-		isOnLeave: false,
 	},
 	{
 		id: "8",
@@ -158,8 +145,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-08-10",
 		updatedAt: "2024-01-15",
-		isOnDuty: true,
-		isOnLeave: false,
 	},
 	{
 		id: "9",
@@ -177,8 +162,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-09-20",
 		updatedAt: "2024-01-14",
-		isOnDuty: false,
-		isOnLeave: true,
 	},
 	{
 		id: "10",
@@ -196,8 +179,6 @@ const demoUsers: User[] = [
 		passwordResetCode: null,
 		createdAt: "2023-10-01",
 		updatedAt: "2024-01-15",
-		isOnDuty: true,
-		isOnLeave: false,
 	},
 ];
 
@@ -304,40 +285,6 @@ export const useUsers = ( userId?: string ) => {
 			if ( userIndex >= 0 ) {
 				const user = demoUsers[userIndex];
 				demoUsers.splice( userIndex, 1 );
-				return user;
-			}
-			throw new Error( 'User not found' );
-		},
-		markUserOnDuty: async ( id: string ) => {
-			const user = demoUsers.find( u => u.id === id );
-			if ( user ) {
-				user.isOnDuty = true;
-				user.isOnLeave = false;
-				return user;
-			}
-			throw new Error( 'User not found' );
-		},
-		markUserOnLeave: async ( id: string ) => {
-			const user = demoUsers.find( u => u.id === id );
-			if ( user ) {
-				user.isOnLeave = true;
-				user.isOnDuty = false;
-				return user;
-			}
-			throw new Error( 'User not found' );
-		},
-		removeUserFromDuty: async ( id: string ) => {
-			const user = demoUsers.find( u => u.id === id );
-			if ( user ) {
-				user.isOnDuty = false;
-				return user;
-			}
-			throw new Error( 'User not found' );
-		},
-		removeUserFromLeave: async ( id: string ) => {
-			const user = demoUsers.find( u => u.id === id );
-			if ( user ) {
-				user.isOnLeave = false;
 				return user;
 			}
 			throw new Error( 'User not found' );

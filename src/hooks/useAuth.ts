@@ -1,9 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import useRequest from './useRequest';
-import { LoginData, LoginResponse, SignUpData, User } from '@/types/api';
+import { LoginResponse, User } from '@/types/api';
 import { useDispatch } from 'react-redux';
 import { signin } from '@/app/slices/auth';
 import { useNavigate } from 'react-router-dom';
+import { LoginData } from '@/types/common';
+import { SignUpData } from '@/types/common';
 
 const USER_QUERY_KEY = ['user'] as const;
 
