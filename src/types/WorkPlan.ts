@@ -1,0 +1,74 @@
+
+import { Client, Demand, DemandComment, User } from './api';
+
+export type WorkPlan = {
+	id: number;
+	demand?: Demand;
+	user?: User;
+	workPlanTitle: string;
+	description: string;
+	submissionDeadline: string;
+	uploadFileName: string;
+	uploadFileType: string;
+	uploadFilePath: string;
+	plannedStartDate: Date | string;
+	plannedEndDate: Date | string;
+	actualStartDate: Date | string;
+	actualEndDate: Date | string;
+	storyPoints: number;
+	createdAt: string;
+	updatedAt: string;
+};
+
+export type WorkPlanResponse = {
+	id: 6;
+	workPlanTitle: string;
+	description: string;
+	plannedStartDate: string;
+	plannedEndDate: string;
+	actualStartDate: null;
+	actualEndDate: null;
+	uploadFileName: null;
+	uploadFileType: null;
+	uploadFilePath: null;
+	submissionDeadline: string;
+	storyPoints: null;
+	progress: number;
+	createdAt: string;
+	updatedAt: string;
+	user: User;
+	demand: {
+		id: number;
+		title: string;
+		businessOwner: string;
+		description: string;
+		attachmentFile: null;
+		status: string;
+		demandType: string;
+		paymentMode: string[];
+		releaseMonth: null;
+		progress: number;
+		businessPriority: string;
+		developer: null;
+		approvalStatus: null;
+		demandSummary: string;
+		baselineReleaseMonth: string;
+		revisedReleaseMonth: string;
+		businessPriorityMapping: string;
+		departmentName: string;
+		priorityNumber: number;
+		segregationGateDate: string;
+		developmentGateDate: string;
+		demandTracker: null;
+		channelsImpacted: string[];
+		createdAt: string;
+		updatedAt: string;
+		__comments__: DemandComment[];
+		__demandUsers__: object[];
+		demandStages: object[];
+		__workplans__: WorkPlan[];
+		__documents__: [];
+		client: Client;
+		createdBy: User;
+	};
+};
