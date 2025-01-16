@@ -1,4 +1,4 @@
-import { useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import useRequest from './useRequest';
 import { User } from '@/types/api';
 import { ROLE } from '@/types/enums';
@@ -237,57 +237,53 @@ const usersApi = ( request: ReturnType<typeof useRequest> ) => ( {
 
 export const useUsers = ( userId?: string ) => {
 	const request = useRequest();
-	const queryClient = useQueryClient();
 	const api = usersApi( request );
+	const queryClient = useQueryClient();
+
+	const { data: users, isLoading } = useQuery( {
+		queryKey: USERS_QUERY_KEY,
+		queryFn: api.fetchUsers,
+	} );
+
+	const createUser = useMutation( {
+		mutationFn: api.createUser,
+		onSuccess: () => {
+			queryClient.invalidateQueries( { queryKey: USERS_QUERY_KEY } );
+		},
+	} );
+
+	const updateUser = useMutation( {
+		mutationFn: api.updateUser,
+		onSuccess: () => {
+			queryClient.invalidateQueries( { queryKey: USERS_QUERY_KEY } );
+		},
+	} );
+
+	const deleteUser = useMutation( {
+		mutationFn: api.deleteUser,
+		onSuccess: () => {
+			queryClient.invalidateQueries( { queryKey: USERS_QUERY_KEY } );
+		},
+	} );
+
 
 	return {
 		// Data
 		users: demoUsers,
+		actualUsers: users,
 		user: demoUsers.find( user => user.id === userId ),
 		userProfile: demoUsers.find( user => user.id === userId ),
 
 		// Loading states
-		isLoading: false,
+		isLoading: isLoading || createUser.isPending || updateUser.isPending || deleteUser.isPending,
 		isLoadingProfile: false,
-		isCreating: false,
-		isUpdating: false,
-		isDeleting: false,
+		isCreating: createUser.isPending,
+		isUpdating: updateUser.isPending,
+		isDeleting: deleteUser.isPending,
 
 		// Mutations
-		createUser: async ( data: CreateUserInput ) => {
-			const newUser = {
-				...data,
-				id: String( demoUsers.length + 1 ),
-				createdAt: new Date().toISOString(),
-				updatedAt: new Date().toISOString(),
-				isOnline: true,
-				isActive: true,
-				lastSeen: new Date().toISOString(),
-				isEmailVerified: true,
-				emailVerificationCode: null,
-				passwordResetCode: null,
-				isOnDuty: false,
-				isOnLeave: false,
-			};
-			demoUsers.push( newUser as User );
-			return newUser;
-		},
-		updateUser: async ( { id, data }: { id: string; data: UpdateUserInput } ) => {
-			const userIndex = demoUsers.findIndex( u => u.id === id );
-			if ( userIndex >= 0 ) {
-				demoUsers[userIndex] = { ...demoUsers[userIndex], ...data };
-				return demoUsers[userIndex];
-			}
-			throw new Error( 'User not found' );
-		},
-		deleteUser: async ( id: string ) => {
-			const userIndex = demoUsers.findIndex( u => u.id === id );
-			if ( userIndex >= 0 ) {
-				const user = demoUsers[userIndex];
-				demoUsers.splice( userIndex, 1 );
-				return user;
-			}
-			throw new Error( 'User not found' );
-		},
+		createUser: createUser.mutate,
+		updateUser: updateUser.mutate,
+		deleteUser: deleteUser.mutate,
 	};
 };
