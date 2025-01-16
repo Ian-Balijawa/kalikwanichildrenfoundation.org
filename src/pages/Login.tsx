@@ -67,7 +67,7 @@ export default function Login() {
 								</div>
 							</div>
 							<h1 className="text-2xl font-bold text-white mb-2 group-hover:text-white/90">
-								GDE Workflow
+								BASE APP
 							</h1>
 						</Link>
 					</div>
