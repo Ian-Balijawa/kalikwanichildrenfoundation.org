@@ -129,8 +129,8 @@ export default function Gallery() {
 	return (
 		<div>
 			{/* Hero Section */}
-			<section className="bg-muted py-20">
-				<div className="container mx-auto px-4">
+			<section className="bg-muted py-20 w-full">
+				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<h1 className="text-4xl font-bold text-center mb-6">Gallery</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
 						Explore our journey through images, showcasing the impact of our programs
@@ -140,8 +140,8 @@ export default function Gallery() {
 			</section>
 
 			{/* Filters */}
-			<section className="py-8 border-b">
-				<div className="container mx-auto px-4">
+			<section className="py-8 border-b w-full">
+				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-wrap gap-4 items-center justify-center">
 						<Select value={selectedCategory} onValueChange={setSelectedCategory}>
 							<SelectTrigger className="w-[200px]">
@@ -181,8 +181,8 @@ export default function Gallery() {
 			</section>
 
 			{/* Gallery Grid */}
-			<section className="py-12">
-				<div className="container mx-auto px-4">
+			<section className="py-12 w-full">
+				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{filteredGallery.map((item) => (
 							<div key={item.id} className="group relative">
@@ -223,8 +223,8 @@ export default function Gallery() {
 			</section>
 
 			{/* Videos Section */}
-			<section className="py-12 bg-muted">
-				<div className="container mx-auto px-4">
+			<section className="py-12 bg-muted w-full">
+				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<h2 className="text-3xl font-bold text-center mb-8">Featured Videos</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{videoItems.map((video) => (
@@ -274,20 +274,22 @@ export default function Gallery() {
 
 			{/* Empty State */}
 			{filteredGallery.length === 0 && (
-				<div className="py-20 text-center">
-					<p className="text-lg text-muted-foreground">
-						No images found for the selected filters.
-					</p>
-					<Button
-						variant="outline"
-						className="mt-4"
-						onClick={() => {
-							setSelectedCategory("all");
-							setSelectedYear("all");
-						}}
-					>
-						Reset Filters
-					</Button>
+				<div className="py-20 text-center w-full">
+					<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+						<p className="text-lg text-muted-foreground">
+							No images found for the selected filters.
+						</p>
+						<Button
+							variant="outline"
+							className="mt-4"
+							onClick={() => {
+								setSelectedCategory("all");
+								setSelectedYear("all");
+							}}
+						>
+							Reset Filters
+						</Button>
+					</div>
 				</div>
 			)}
 		</div>

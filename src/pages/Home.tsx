@@ -20,7 +20,7 @@ export default function Home() {
 						Join us in our mission to create a society where every child has equal
 						opportunities to thrive, grow, and reach their full potential.
 					</p>
-					<div className="flex justify-center gap-4">
+					<div className="px-4 flex justify-center gap-4">
 						<Link to="/support">
 							<Button size="lg" className="bg-primary hover:bg-primary/90">
 								Support Our Cause

@@ -2,7 +2,6 @@ import { useRoutes } from "react-router-dom";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import NotFound from "@/pages/NotFound";
 
-import Home from "@/pages/Home";
 import About from "@/pages/About";
 import AnnualReports from "@/pages/AnnualReports";
 import Gallery from "@/pages/Gallery";
@@ -17,6 +16,7 @@ import Support from "@/pages/Support";
 import Team from "@/pages/Team";
 import VolunteerOpportunities from "@/pages/VolunteerOpportunities";
 import Contact from "@/pages/Contact";
+import Home from "@/pages/Home";
 
 export function AppRoutes() {
 	const routes = useRoutes([
@@ -41,6 +41,7 @@ export function AppRoutes() {
 				{ path: "annual-reports", element: <AnnualReports /> },
 			],
 		},
+		{ path: "/home", element: <About /> },
 		{
 			path: "*",
 			element: <NotFound />,
