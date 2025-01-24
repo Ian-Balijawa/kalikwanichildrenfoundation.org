@@ -9,73 +9,117 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 
-// Sample gallery data - replace with actual images and data
 const galleryItems = [
 	{
 		id: 1,
-		title: "Education Program at Mbulamuti Junior School",
+		title: "Education Program Activities",
 		category: "education",
 		date: "2024",
-		description: "Students and staff members at Mbulamuti Junior School",
-		image: "/images/gallery/education-1.jpg",
+		description: "Students engaged in various educational activities",
+		image: "/images/IMG-20250123-WA0146.jpg",
 	},
 	{
 		id: 2,
-		title: "Nyanza High School Visit",
-		category: "education",
+		title: "Community Outreach",
+		category: "events",
 		date: "2024",
-		description: "Staff and beneficiaries at Nyanza High School",
-		image: "/images/gallery/education-2.jpg",
+		description: "Community engagement and support activities",
+		image: "/images/IMG-20250123-WA0145.jpg",
 	},
 	{
 		id: 3,
-		title: "Green Hill Junior School",
+		title: "Student Support Programs",
 		category: "education",
 		date: "2024",
-		description: "Activities at Green Hill Junior School",
-		image: "/images/gallery/education-3.jpg",
+		description: "Supporting students in their educational journey",
+		image: "/images/IMG-20250123-WA0144.jpg",
 	},
 	{
 		id: 4,
-		title: "Piggery Farm Project",
+		title: "Agricultural Projects",
 		category: "farming",
 		date: "2024",
-		description: "Our sustainable piggery farming initiative",
-		image: "/images/gallery/farming-1.jpg",
+		description: "Sustainable farming initiatives",
+		image: "/images/IMG-20250123-WA0143.jpg",
 	},
 	{
 		id: 5,
-		title: "International Volunteer - Cheng Cindy",
+		title: "Volunteer Activities",
 		category: "volunteers",
 		date: "2024",
-		description: "Volunteer from Taiwan contributing to our mission",
-		image: "/images/gallery/volunteer-1.jpg",
+		description: "International volunteers making a difference",
+		image: "/images/IMG-20250123-WA0142.jpg",
 	},
 	{
 		id: 6,
-		title: "IUIU Students Visit",
+		title: "Community Events",
 		category: "events",
 		date: "2024",
-		description: "Students from Islamic University In Uganda visiting our foundation",
-		image: "/images/gallery/events-1.jpg",
+		description: "Bringing the community together",
+		image: "/images/IMG-20250123-WA0141.jpg",
 	},
 	{
 		id: 7,
-		title: "Maltese Donors Visit",
-		category: "events",
+		title: "School Programs",
+		category: "education",
 		date: "2024",
-		description: "Mr. Anthony and donors from Malta supporting our cause",
-		image: "/images/gallery/events-2.jpg",
+		description: "Educational programs in action",
+		image: "/images/IMG-20250123-WA0140.jpg",
 	},
 	{
 		id: 8,
-		title: "School Construction Project",
+		title: "Development Projects",
 		category: "projects",
 		date: "2024",
-		description: "Progress on our primary and nursery school construction",
-		image: "/images/gallery/projects-1.jpg",
+		description: "Infrastructure and development initiatives",
+		image: "/images/IMG-20250123-WA0139.jpg",
+	},
+	{
+		id: 9,
+		title: "Student Activities",
+		category: "education",
+		date: "2024",
+		description: "Students participating in various activities",
+		image: "/images/IMG-20250123-WA0138.jpg",
+	},
+	{
+		id: 10,
+		title: "Community Support",
+		category: "events",
+		date: "2024",
+		description: "Supporting our local community",
+		image: "/images/IMG-20250123-WA0137.jpg",
+	},
+	{
+		id: 11,
+		title: "Farming Initiatives",
+		category: "farming",
+		date: "2024",
+		description: "Sustainable agriculture projects",
+		image: "/images/IMG-20250123-WA0136.jpg",
+	},
+	{
+		id: 12,
+		title: "Volunteer Programs",
+		category: "volunteers",
+		date: "2024",
+		description: "International volunteers in action",
+		image: "/images/IMG-20250123-WA0135.jpg",
 	},
 ];
+
+// Function to extract YouTube video ID from URL
+function getYouTubeVideoId(url: string) {
+	const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+	const match = url.match(regExp);
+	return match && match[2].length === 11 ? match[2] : null;
+}
+
+// Function to get YouTube thumbnail URL
+function getYouTubeThumbnail(url: string) {
+	const videoId = getYouTubeVideoId(url);
+	return videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
+}
 
 // Sample videos data - replace with actual video links
 const videoItems = [
@@ -83,22 +127,13 @@ const videoItems = [
 		id: 1,
 		title: "School Opening Ceremony",
 		description: "Highlights from our new school opening ceremony",
-		url: "https://www.youtube.com/watch?v=example1",
-		thumbnail: "/images/gallery/video-thumb-1.jpg",
+		url: "https://www.youtube.com/watch?v=69M8vCpnoCQ",
 	},
 	{
 		id: 2,
 		title: "Student Success Stories",
 		description: "Inspiring stories from our scholarship recipients",
-		url: "https://www.youtube.com/watch?v=example2",
-		thumbnail: "/images/gallery/video-thumb-2.jpg",
-	},
-	{
-		id: 3,
-		title: "Farming Project Launch",
-		description: "Launch of our sustainable farming initiative",
-		url: "https://www.youtube.com/watch?v=example3",
-		thumbnail: "/images/gallery/video-thumb-3.jpg",
+		url: "https://www.youtube.com/watch?v=mqOyO-UCO0k",
 	},
 ];
 
@@ -226,7 +261,7 @@ export default function Gallery() {
 			<section className="py-12 bg-muted w-full">
 				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<h2 className="text-3xl font-bold text-center mb-8">Featured Videos</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
 						{videoItems.map((video) => (
 							<div key={video.id} className="group relative">
 								<div className="aspect-video bg-black rounded-lg overflow-hidden">
@@ -240,11 +275,15 @@ export default function Gallery() {
 										/>
 									) : (
 										<div
-											className="w-full h-full bg-cover bg-center cursor-pointer"
-											style={{ backgroundImage: `url(${video.thumbnail})` }}
+											className="w-full h-full bg-cover bg-center cursor-pointer relative"
+											style={{
+												backgroundImage: `url('${getYouTubeThumbnail(
+													video.url
+												)}')`,
+											}}
 											onClick={() => setSelectedVideo(video.id)}
 										>
-											<div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+											<div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-colors">
 												<div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
 													<svg
 														className="w-8 h-8 text-primary translate-x-0.5"

@@ -1,17 +1,49 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Hero slider images
+const heroImages = [
+	"/images/IMG-20250123-WA0146.jpg",
+	"/images/IMG-20250123-WA0145.jpg",
+	"/images/IMG-20250123-WA0144.jpg",
+	"/images/IMG-20250123-WA0143.jpg",
+];
 
 export default function Home() {
+	const sliderSettings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		fade: true,
+		cssEase: "linear",
+		arrows: false,
+	};
+
 	return (
 		<div>
 			{/* Hero Section */}
-			<section className="relative h-[600px] flex items-center justify-center text-white">
+			<section className="relative h-[800px] flex items-center justify-center text-white">
 				<div className="absolute inset-0 bg-black/50 z-10" />
-				<div
-					className="absolute inset-0 bg-cover bg-center"
-					style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
-				/>
+				<div className="absolute inset-0">
+					<Slider {...sliderSettings} className="h-full">
+						{heroImages.map((image, index) => (
+							<div key={index} className="h-[800px]">
+								<div
+									className="w-full h-full bg-cover bg-center"
+									style={{ backgroundImage: `url('${image}')` }}
+								/>
+							</div>
+						))}
+					</Slider>
+				</div>
 				<div className="container mx-auto px-4 relative z-20 text-center">
 					<h1 className="text-5xl font-bold mb-6">
 						Empowering Children, Transforming Lives

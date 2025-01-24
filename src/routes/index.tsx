@@ -17,6 +17,7 @@ import Team from "@/pages/Team";
 import VolunteerOpportunities from "@/pages/VolunteerOpportunities";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
+import DecagonHomes from "@/pages/projects/DecagonHomes";
 
 export function AppRoutes() {
 	const routes = useRoutes([
@@ -25,6 +26,7 @@ export function AppRoutes() {
 			element: <PublicLayout />,
 			children: [
 				{ index: true, element: <Home /> },
+				{ path: "home", element: <Home /> },
 				{ path: "about", element: <About /> },
 				{ path: "programs", element: <Programs /> },
 				{ path: "gallery", element: <Gallery /> },
@@ -39,9 +41,9 @@ export function AppRoutes() {
 				{ path: "projects", element: <Projects /> },
 				{ path: "support", element: <Support /> },
 				{ path: "annual-reports", element: <AnnualReports /> },
+				{ path: "projects/decagon-homes", element: <DecagonHomes /> },
 			],
 		},
-		{ path: "/home", element: <About /> },
 		{
 			path: "*",
 			element: <NotFound />,

@@ -7,6 +7,7 @@ const programs = [
 		title: "Education Initiative",
 		description:
 			"Our comprehensive education program provides support to deserving beneficiaries through scholarships, educational materials, and mentoring.",
+		image: "/images/IMG-20250123-WA0125.jpg",
 		stats: [
 			{ label: "Students Supported", value: "45+" },
 			{ label: "Partner Schools", value: "8" },
@@ -24,6 +25,7 @@ const programs = [
 		title: "Sustainable Farming",
 		description:
 			"Our farming projects generate income to support the organization's activities while promoting sustainable agriculture practices.",
+		image: "/images/IMG-20250123-WA0124.jpg",
 		stats: [
 			{ label: "Active Projects", value: "3" },
 			{ label: "Beneficiaries", value: "20+" },
@@ -41,6 +43,7 @@ const programs = [
 		title: "International Exchange",
 		description:
 			"We connect global volunteers with local communities to share knowledge, skills, and cultural experiences.",
+		image: "/images/IMG-20250123-WA0123.jpg",
 		stats: [
 			{ label: "Volunteers Hosted", value: "5+" },
 			{ label: "Countries", value: "3" },
@@ -150,14 +153,15 @@ export default function Programs() {
 									</Link>
 								</div>
 								<div
-									className={`bg-muted rounded-lg h-[400px] ${
+									className={`rounded-lg overflow-hidden h-[400px] ${
 										index % 2 === 1 ? "md:order-1" : ""
 									}`}
 								>
-									{/* Placeholder for program image */}
-									<div className="w-full h-full flex items-center justify-center text-muted-foreground">
-										Program Image
-									</div>
+									<img
+										src={program.image}
+										alt={program.title}
+										className="w-full h-full object-cover"
+									/>
 								</div>
 							</div>
 						))}

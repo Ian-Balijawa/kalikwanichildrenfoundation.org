@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	Select,
 	SelectContent,
@@ -14,6 +13,62 @@ import { Link } from "react-router-dom";
 const projects = [
 	{
 		id: 1,
+		title: "Decagon Family Homes Project",
+		category: "Housing",
+		status: "Planning",
+		startDate: "January 2025",
+		endDate: "Ongoing",
+		location: "Kamuli, Uganda (0°52'21.22\" N  33°04'10.17\" E)",
+		description:
+			"A revolutionary approach to orphan care, transforming the traditional orphanage model into a true family environment. Currently supporting 45 children aged 2-17, we're building a unique decagon-shaped complex of 10 family homes that will provide genuine family structures rather than institutional care.",
+		impact: "Will provide family-style homes for 50 children and 10 house mothers",
+		budget: "€11,750.00 (45 million Ugandan shillings)",
+		progress: 15,
+		images: ["/image1.png", "/image2.png", "/image3.png", "/image4.png", "/image5.png"],
+		details: {
+			concept:
+				"Each home is designed to house one house mother with 5 children of different ages, creating a genuine family unit rather than an institutional environment.",
+			features: [
+				"Ten individual family-style homes arranged in a decagon",
+				"Three floors per unit with dedicated family spaces",
+				"Shared courtyard for community activities",
+				"Private bedrooms and family living areas",
+				"Individual kitchens and bathrooms per family unit",
+				"Recreation spaces and study areas",
+				"Sustainable facilities including water borehole and RO system",
+			],
+			costs: [
+				{ item: "Architect fees and planning", amount: "$1,000" },
+				{ item: "Materials", amount: "$6,000" },
+				{ item: "Workers", amount: "$2,000" },
+				{ item: "Furniture and appliances", amount: "$1,500" },
+				{ item: "Electricity and plumbing", amount: "$800" },
+				{ item: "Borehole & Water pump", amount: "$700" },
+				{ item: "Septic tank", amount: "$500" },
+				{ item: "Paint", amount: "$300" },
+			],
+			familyStructure: [
+				"One house mother caring for 5 children",
+				"Children of varying ages (18 months apart)",
+				"Weekly visits from assigned father figure",
+				"Private family dining and living spaces",
+				"Integrated community activities",
+			],
+			philosophy:
+				"Our approach moves away from traditional orphanage models to create real family units. Children will never have to identify as orphans, but as members of loving, supportive families. When older children transition to independent living, younger ones can join, maintaining the natural family dynamic.",
+		},
+		updates: [
+			{
+				date: "January 19, 2025",
+				title: "First Floor Plan Received",
+				description:
+					"Architectural plans received for the first family unit, showcasing the innovative design that will form part of the decagon community structure.",
+			},
+		],
+		contractor: "Sarjan Construction (https://sarjanconstruction.co.ug/about-us/)",
+	},
+	{
+		id: 2,
 		title: "Busota Primary School Construction",
 		category: "Education",
 		status: "Ongoing",
@@ -25,7 +80,7 @@ const projects = [
 		impact: "Will provide quality education facilities for 400 students",
 		budget: "$150,000",
 		progress: 35,
-		images: ["/images/projects/school-1.jpg", "/images/projects/school-2.jpg"],
+		images: ["/images/IMG-20250123-WA0131.jpg", "/images/IMG-20250123-WA0130.jpg"],
 		updates: [
 			{
 				date: "March 15, 2024",
@@ -36,7 +91,7 @@ const projects = [
 		],
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Community Farm Initiative",
 		category: "Agriculture",
 		status: "Ongoing",
@@ -48,7 +103,7 @@ const projects = [
 		impact: "Supporting 50 families with food and income",
 		budget: "$75,000",
 		progress: 70,
-		images: ["/images/projects/farm-1.jpg", "/images/projects/farm-2.jpg"],
+		images: ["/images/IMG-20250123-WA0129.jpg", "/images/IMG-20250123-WA0128.jpg"],
 		updates: [
 			{
 				date: "February 2024",
@@ -58,7 +113,7 @@ const projects = [
 		],
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "Healthcare Outreach Program",
 		category: "Healthcare",
 		status: "Completed",
@@ -70,7 +125,7 @@ const projects = [
 		impact: "Served over 2,000 community members",
 		budget: "$45,000",
 		progress: 100,
-		images: ["/images/projects/health-1.jpg", "/images/projects/health-2.jpg"],
+		images: ["/images/IMG-20250123-WA0127.jpg", "/images/IMG-20250123-WA0126.jpg"],
 		updates: [
 			{
 				date: "December 2023",
@@ -82,8 +137,8 @@ const projects = [
 	},
 ];
 
-const categories = ["All", "Education", "Agriculture", "Healthcare", "Infrastructure"];
-const statuses = ["All", "Ongoing", "Completed"];
+const categories = ["All", "Education", "Agriculture", "Healthcare", "Infrastructure", "Housing"];
+const statuses = ["All", "Ongoing", "Completed", "Planning"];
 
 export default function Projects() {
 	const [selectedCategory, setSelectedCategory] = useState("All");
@@ -102,8 +157,8 @@ export default function Projects() {
 				<div className="container mx-auto px-4">
 					<h1 className="text-4xl font-bold text-center mb-6">Our Projects</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
-						Explore our ongoing and completed projects that are making a lasting impact
-						in the Busota community and beyond.
+						Explore our ongoing and completed projects that are transforming lives and
+						building stronger communities in Kamuli, Uganda.
 					</p>
 				</div>
 			</section>
@@ -156,97 +211,94 @@ export default function Projects() {
 			{/* Projects Grid */}
 			<section className="py-20">
 				<div className="container mx-auto px-4">
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+					<div className="grid grid-cols-1 gap-8">
 						{filteredProjects.map((project) => (
-							<Card key={project.id} className="overflow-hidden">
-								<div className="aspect-video relative">
-									{/* Replace with actual image component */}
-									<div
-										className="w-full h-full bg-cover bg-center"
-										style={{ backgroundImage: `url(${project.images[0]})` }}
-									/>
-									<div className="absolute top-4 right-4">
-										<span
-											className={`px-3 py-1 rounded-full text-sm font-medium ${
-												project.status === "Ongoing"
-													? "bg-primary text-primary-foreground"
-													: "bg-green-500 text-white"
-											}`}
-										>
-											{project.status}
-										</span>
-									</div>
-								</div>
-								<CardHeader>
-									<div className="flex items-center justify-between mb-2">
-										<span className="text-sm font-medium text-primary">
-											{project.category}
-										</span>
-										<span className="text-sm text-muted-foreground">
-											{project.startDate} - {project.endDate}
-										</span>
-									</div>
-									<CardTitle>{project.title}</CardTitle>
-									<p className="text-sm text-muted-foreground">
-										📍 {project.location}
-									</p>
-								</CardHeader>
-								<CardContent>
-									<p className="text-muted-foreground mb-6">
-										{project.description}
-									</p>
-									<div className="space-y-4">
-										<div>
-											<div className="flex justify-between mb-1">
-												<span className="text-sm font-medium">
-													Progress
-												</span>
-												<span className="text-sm text-muted-foreground">
-													{project.progress}%
-												</span>
+							<div
+								key={project.id}
+								className="bg-card rounded-lg overflow-hidden shadow-lg"
+							>
+								<div className="grid md:grid-cols-2 gap-6">
+									<div className="relative">
+										<div className="aspect-video relative overflow-hidden">
+											{project.images && project.images[0] && (
+												<img
+													src={project.images[0]}
+													alt={project.title}
+													className="absolute inset-0 w-full h-full object-cover"
+												/>
+											)}
+										</div>
+										{project.images && project.images.length > 1 && (
+											<div className="absolute bottom-4 left-4 right-4 flex gap-2 overflow-x-auto">
+												{project.images.slice(1).map((image, index) => (
+													<img
+														key={index}
+														src={image}
+														alt={`${project.title} - Image ${
+															index + 2
+														}`}
+														className="h-16 w-24 object-cover rounded-md"
+													/>
+												))}
 											</div>
-											<div className="w-full bg-muted rounded-full h-2.5">
+										)}
+									</div>
+									<div className="p-6">
+										<div className="flex items-center gap-2 mb-4">
+											<span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
+												{project.category}
+											</span>
+											<span className="px-3 py-1 rounded-full text-sm font-medium bg-muted">
+												{project.status}
+											</span>
+										</div>
+										<h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+										<p className="text-muted-foreground mb-6">
+											{project.description}
+										</p>
+										<div className="space-y-2">
+											<div className="flex justify-between text-sm">
+												<span>Progress</span>
+												<span>{project.progress}%</span>
+											</div>
+											<div className="w-full h-2 bg-muted rounded-full overflow-hidden">
 												<div
-													className="bg-primary h-2.5 rounded-full"
+													className="h-full bg-primary"
 													style={{ width: `${project.progress}%` }}
 												/>
 											</div>
 										</div>
-										<div className="grid grid-cols-2 gap-4">
+										<dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
 											<div>
-												<p className="text-sm font-medium mb-1">Impact</p>
-												<p className="text-sm text-muted-foreground">
-													{project.impact}
-												</p>
+												<dt className="text-muted-foreground">Location</dt>
+												<dd className="font-medium">{project.location}</dd>
 											</div>
 											<div>
-												<p className="text-sm font-medium mb-1">Budget</p>
-												<p className="text-sm text-muted-foreground">
-													{project.budget}
-												</p>
+												<dt className="text-muted-foreground">
+													Start Date
+												</dt>
+												<dd className="font-medium">{project.startDate}</dd>
 											</div>
-										</div>
-										{project.updates.length > 0 && (
 											<div>
-												<p className="text-sm font-medium mb-2">
-													Latest Update
-												</p>
-												<div className="bg-muted p-3 rounded-lg">
-													<p className="text-sm font-medium">
-														{project.updates[0].title}
-													</p>
-													<p className="text-sm text-muted-foreground">
-														{project.updates[0].date}
-													</p>
-													<p className="text-sm mt-1">
-														{project.updates[0].description}
-													</p>
-												</div>
+												<dt className="text-muted-foreground">Impact</dt>
+												<dd className="font-medium">{project.impact}</dd>
 											</div>
+											<div>
+												<dt className="text-muted-foreground">Budget</dt>
+												<dd className="font-medium">{project.budget}</dd>
+											</div>
+										</dl>
+										{project.id === 1 && (
+											<Link
+												to="/projects/decagon-homes"
+												className="mt-6 inline-block"
+											>
+												<Button>View Full Project Details</Button>
+											</Link>
 										)}
 									</div>
-								</CardContent>
-							</Card>
+								</div>
+							</div>
 						))}
 					</div>
 				</div>
