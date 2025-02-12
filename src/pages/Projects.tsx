@@ -18,16 +18,16 @@ const projects = [
 		status: "Planning",
 		startDate: "January 2025",
 		endDate: "Ongoing",
-		location: "Kamuli, Uganda (0°52'21.22\" N  33°04'10.17\" E)",
+		location: "Kamuli, Uganda (0°51'38.67\" N  33°03'26.63\" E)",
 		description:
-			"A revolutionary approach to orphan care, transforming the traditional orphanage model into a true family environment. Currently supporting 45 children aged 2-17, we're building a unique decagon-shaped complex of 10 family homes that will provide genuine family structures rather than institutional care.",
-		impact: "Will provide family-style homes for 50 children and 10 house mothers",
-		budget: "€11,750.00 (45 million Ugandan shillings)",
+			"A revolutionary approach to orphan care, transforming the traditional orphanage model into a true family environment. Currently supporting 45 children aged 2-17, we're building a unique decagon-shaped complex of 10 family homes integrated with the innovative Village Hub project to provide genuine family structures rather than institutional care.",
+		impact: "Will provide family-style homes for 50 children and 10 house mothers while establishing a community-based social protection system",
+		budget: "$1,700,655.00 (6,270,502,185 UGX)",
 		progress: 15,
 		images: ["/image1.png", "/image2.png", "/image3.png", "/image4.png", "/image5.png"],
 		details: {
 			concept:
-				"Each home is designed to house one house mother with 5 children of different ages, creating a genuine family unit rather than an institutional environment.",
+				"Each home is designed to house one house mother with 5 children of different ages, creating a genuine family unit rather than an institutional environment. The project includes the Village Hub initiative to strengthen community services and support.",
 			features: [
 				"Ten individual family-style homes arranged in a decagon",
 				"Three floors per unit with dedicated family spaces",
@@ -35,17 +35,13 @@ const projects = [
 				"Private bedrooms and family living areas",
 				"Individual kitchens and bathrooms per family unit",
 				"Recreation spaces and study areas",
-				"Sustainable facilities including water borehole and RO system",
+				"Sustainable facilities including solar water heaters and RO system",
+				"Village Hub community support center",
 			],
 			costs: [
-				{ item: "Architect fees and planning", amount: "$1,000" },
-				{ item: "Materials", amount: "$6,000" },
-				{ item: "Workers", amount: "$2,000" },
-				{ item: "Furniture and appliances", amount: "$1,500" },
-				{ item: "Electricity and plumbing", amount: "$800" },
-				{ item: "Borehole & Water pump", amount: "$700" },
-				{ item: "Septic tank", amount: "$500" },
-				{ item: "Paint", amount: "$300" },
+				{ item: "Construction", amount: "$1,658,101.00" },
+				{ item: "Land Acquisition", amount: "$13,554.00" },
+				{ item: "Furniture and Equipment", amount: "$30,000.00" },
 			],
 			familyStructure: [
 				"One house mother caring for 5 children",
@@ -55,20 +51,68 @@ const projects = [
 				"Integrated community activities",
 			],
 			philosophy:
-				"Our approach moves away from traditional orphanage models to create real family units. Children will never have to identify as orphans, but as members of loving, supportive families. When older children transition to independent living, younger ones can join, maintaining the natural family dynamic.",
+				"Our approach moves away from traditional orphanage models to create real family units while building a community-based social protection system. Children will never have to identify as orphans, but as members of loving, supportive families within a strong community framework.",
 		},
 		updates: [
 			{
-				date: "January 19, 2025",
-				title: "First Floor Plan Received",
+				date: "January 2024",
+				title: "Land Acquired",
 				description:
-					"Architectural plans received for the first family unit, showcasing the innovative design that will form part of the decagon community structure.",
+					"Secured 4.5 acres of land for the project, close to our existing pig farm.",
 			},
 		],
-		contractor: "Sarjan Construction (https://sarjanconstruction.co.ug/about-us/)",
+		contractor: "Kasthew Construction UG Ltd. (www.kasthew-construction.com)",
 	},
 	{
 		id: 2,
+		title: "Oven Flair Project",
+		category: "Community",
+		status: "Ongoing",
+		startDate: "2024",
+		endDate: "Ongoing",
+		location: "Kamuli, Uganda",
+		description:
+			"A transformative initiative providing energy-efficient ovens to poor families, reducing smoke-related health risks and deforestation while promoting dignity and environmental sustainability.",
+		impact: "Reducing deforestation by 60% per household, preventing smoke-related illnesses, and supporting education",
+		budget: "UGX 100,000 per oven (€30.00 or CAD40.00)",
+		progress: 25,
+		images: ["/image6.png"],
+		details: {
+			concept:
+				"Providing affordable, efficient ovens to families while creating a sustainable cycle of environmental protection and community support.",
+			features: [
+				"Energy-efficient oven burners saving 60% of wood consumption",
+				"Smoke-free cooking environment",
+				"Affordable pricing model (10% cost to recipients)",
+				"Tree planting initiative",
+				"Education fund support",
+			],
+			costs: [
+				{ item: "Oven burner", amount: "UGX 100,000" },
+				{ item: "Tree planting contribution", amount: "UGX 5,000" },
+				{ item: "Education fund contribution", amount: "UGX 5,000" },
+			],
+			impact: [
+				"Reduced smoke-related health risks",
+				"Decreased deforestation",
+				"Improved family dignity",
+				"Support for education",
+				"Environmental conservation",
+			],
+			philosophy:
+				"By providing efficient ovens at a dignified price point, we help families protect their health, preserve the environment, and maintain their self-respect while contributing to education and reforestation efforts.",
+		},
+		updates: [
+			{
+				date: "2024",
+				title: "First Donation Received",
+				description: "Received our first donation from a 9-year-old supporter from Malta.",
+			},
+		],
+		videoUrl: "https://youtu.be/1WAkx8F5HVs?si=d0eHG0Hr53PGy-l_",
+	},
+	{
+		id: 3,
 		title: "Busota Primary School Construction",
 		category: "Education",
 		status: "Ongoing",
@@ -91,7 +135,7 @@ const projects = [
 		],
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "Community Farm Initiative",
 		category: "Agriculture",
 		status: "Ongoing",
@@ -113,7 +157,7 @@ const projects = [
 		],
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "Healthcare Outreach Program",
 		category: "Healthcare",
 		status: "Completed",
@@ -291,6 +335,14 @@ export default function Projects() {
 										{project.id === 1 && (
 											<Link
 												to="/projects/decagon-homes"
+												className="mt-6 inline-block"
+											>
+												<Button>View Full Project Details</Button>
+											</Link>
+										)}
+										{project.id === 2 && (
+											<Link
+												to="/projects/oven-flair"
 												className="mt-6 inline-block"
 											>
 												<Button>View Full Project Details</Button>

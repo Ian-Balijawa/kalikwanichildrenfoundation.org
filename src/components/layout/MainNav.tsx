@@ -13,7 +13,9 @@ export function MainNav() {
 	return (
 		<nav className="hidden gap-6 lg:flex items-center justify-between w-full">
 			<Link to="/" className="flex items-center space-x-2">
-				<span className="text-2xl font-bold text-primary">KCF</span>
+				<span className="text-2xl font-bold text-primary">
+					<img src="/logo.png" alt="KCF Logo" className="w-10 h-10" />
+				</span>
 			</Link>
 
 			<NavigationMenu>

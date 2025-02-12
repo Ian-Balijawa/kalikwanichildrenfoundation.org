@@ -41,12 +41,6 @@ const teamMembers = [
 		email: "kalikwanimwesigwasamuel@gmail.com",
 	},
 	{
-		name: "Kagoda Fred Jackson",
-		role: "Deputy Executive Director",
-		contact: "+256754 507556",
-		email: "kagodafredjackson5@gmail.com",
-	},
-	{
 		name: "Ndada Jonathan",
 		role: "Community Mobilizer",
 		contact: "+25674 1343527",

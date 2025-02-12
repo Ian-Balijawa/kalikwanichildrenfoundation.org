@@ -18,6 +18,7 @@ import VolunteerOpportunities from "@/pages/VolunteerOpportunities";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import DecagonHomes from "@/pages/projects/DecagonHomes";
+import OvenFlair from "@/pages/projects/OvenFlair";
 
 export function AppRoutes() {
 	const routes = useRoutes([
@@ -42,6 +43,7 @@ export function AppRoutes() {
 				{ path: "support", element: <Support /> },
 				{ path: "annual-reports", element: <AnnualReports /> },
 				{ path: "projects/decagon-homes", element: <DecagonHomes /> },
+				{ path: "projects/oven-flair", element: <OvenFlair /> },
 			],
 		},
 		{
