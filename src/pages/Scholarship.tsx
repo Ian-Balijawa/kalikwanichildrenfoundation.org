@@ -2,212 +2,120 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-// Sample scholarship programs - replace with actual data
-const scholarshipPrograms = [
-	{
-		id: 1,
-		title: "Primary Education Scholarship",
-		description:
-			"Supporting primary school students with tuition, uniforms, and school supplies.",
-		eligibility: [
-			"Children aged 6-13 years",
-			"Demonstrated financial need",
-			"Resident of Busota or surrounding communities",
-			"Strong academic potential",
-		],
-		coverage: ["School fees", "Uniforms and shoes", "Books and stationery", "School meals"],
-		duration: "Full primary school cycle (P1-P7)",
-	},
-	{
-		id: 2,
-		title: "Secondary Education Scholarship",
-		description:
-			"Enabling talented students to continue their education through secondary school.",
-		eligibility: [
-			"Primary school graduates aged 13-18",
-			"Minimum academic performance of 65%",
-			"Demonstrated financial need",
-			"Strong leadership potential",
-		],
-		coverage: [
-			"School fees",
-			"Uniforms and shoes",
-			"Books and learning materials",
-			"Boarding facilities where applicable",
-		],
-		duration: "Full secondary school cycle (S1-S6)",
-	},
-	{
-		id: 3,
-		title: "Vocational Training Scholarship",
-		description:
-			"Providing skills training opportunities for youth to gain practical job skills.",
-		eligibility: [
-			"Youth aged 16-24",
-			"Basic literacy and numeracy skills",
-			"Interest in vocational training",
-			"Commitment to complete the program",
-		],
-		coverage: [
-			"Training fees",
-			"Tools and equipment",
-			"Training materials",
-			"Transportation allowance",
-		],
-		duration: "6-24 months depending on the program",
-	},
-];
-
-const applicationSteps = [
-	{
-		step: 1,
-		title: "Check Eligibility",
-		description:
-			"Review the eligibility criteria for your desired scholarship program to ensure you qualify.",
-	},
-	{
-		step: 2,
-		title: "Gather Documents",
-		description:
-			"Collect required documents including academic records, proof of residence, and financial information.",
-	},
-	{
-		step: 3,
-		title: "Submit Application",
-		description:
-			"Complete the online application form or visit our office to submit a physical application.",
-	},
-	{
-		step: 4,
-		title: "Interview",
-		description:
-			"Shortlisted candidates will be invited for an interview with our scholarship committee.",
-	},
-];
-
 export default function Scholarship() {
 	return (
 		<div>
 			{/* Hero Section */}
 			<section className="bg-muted py-20">
 				<div className="container mx-auto px-4">
-					<h1 className="text-4xl font-bold text-center mb-6">Scholarship Programs</h1>
+					<h1 className="text-4xl font-bold text-center mb-6">Education</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
-						We believe that education is a fundamental right. Our scholarship programs
-						aim to remove financial barriers and provide quality education opportunities
-						for deserving students.
+						Some call it Scholarship, we call it Subsidy
 					</p>
 				</div>
 			</section>
 
-			{/* Scholarship Programs */}
+			{/* Main Content */}
 			<section className="py-20">
-				<div className="container mx-auto px-4">
-					<h2 className="text-3xl font-bold text-center mb-12">Available Programs</h2>
-					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-						{scholarshipPrograms.map((program) => (
-							<Card key={program.id} className="flex flex-col">
+				<div className="container mx-auto px-4 max-w-4xl">
+					<div className="space-y-12">
+						<div>
+							<h2 className="text-3xl font-bold mb-4">
+								Empowering Young Minds through Education
+							</h2>
+							<p className="text-lg text-muted-foreground">
+								At Kalikwani Children’s Foundation, we believe that education is the
+								key to unlocking a brighter future for vulnerable children. Our
+								Education Support Program is designed to provide access to better
+								education for children who need it most.
+							</p>
+						</div>
+
+						<Card>
+							<CardHeader>
+								<CardTitle>Our Approach</CardTitle>
+							</CardHeader>
+							<CardContent className="space-y-4">
+								<p className="text-muted-foreground">
+									We provide broad educational support to over 50 children at
+									various educational levels, from primary to secondary and
+									beyond. Our support includes:
+								</p>
+								<ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+									<li>Securing bursaries to cover school fees.</li>
+									<li>Paying school fees to ensure uninterrupted learning.</li>
+									<li>
+										Providing essential school necessities, such as uniforms,
+										books, and stationery.
+									</li>
+								</ul>
+							</CardContent>
+						</Card>
+
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							<Card>
 								<CardHeader>
-									<CardTitle>{program.title}</CardTitle>
-									<p className="text-muted-foreground mt-2">
-										{program.description}
-									</p>
+									<CardTitle>Eligibility and Selection</CardTitle>
 								</CardHeader>
-								<CardContent className="flex-1">
-									<div className="mb-6">
-										<h4 className="font-semibold mb-2">
-											Eligibility Criteria:
-										</h4>
-										<ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-											{program.eligibility.map((item, index) => (
-												<li key={index}>{item}</li>
-											))}
-										</ul>
-									</div>
-									<div className="mb-6">
-										<h4 className="font-semibold mb-2">Coverage:</h4>
-										<ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-											{program.coverage.map((item, index) => (
-												<li key={index}>{item}</li>
-											))}
-										</ul>
-									</div>
-									<div>
-										<h4 className="font-semibold mb-2">Duration:</h4>
-										<p className="text-muted-foreground">{program.duration}</p>
-									</div>
+								<CardContent>
+									<p className="text-muted-foreground">
+										Our bursary scheme is open to children who meet our
+										eligibility criteria. Successful applicants are selected
+										based on their academic potential, financial need, and
+										personal circumstances.
+									</p>
 								</CardContent>
 							</Card>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Application Process */}
-			<section className="py-20 bg-muted">
-				<div className="container mx-auto px-4">
-					<h2 className="text-3xl font-bold text-center mb-12">Application Process</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-						{applicationSteps.map((step) => (
-							<Card key={step.step}>
-								<CardContent className="pt-6">
-									<div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xl font-bold mb-4">
-										{step.step}
-									</div>
-									<h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-									<p className="text-muted-foreground">{step.description}</p>
+							<Card>
+								<CardHeader>
+									<CardTitle>Renewal and Progression</CardTitle>
+								</CardHeader>
+								<CardContent>
+									<p className="text-muted-foreground">
+										Our bursary is renewable annually, subject to satisfactory
+										academic performance and adherence to our terms. We monitor
+										the progress of our beneficiaries and provide ongoing
+										support to ensure they reach their full potential.
+									</p>
 								</CardContent>
 							</Card>
-						))}
-					</div>
-				</div>
-			</section>
+						</div>
 
-			{/* Important Dates */}
-			<section className="py-20">
-				<div className="container mx-auto px-4">
-					<h2 className="text-3xl font-bold text-center mb-12">Important Dates</h2>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-						<Card>
-							<CardContent className="p-6">
-								<h3 className="text-xl font-semibold mb-2">Application Opens</h3>
-								<p className="text-primary">January 15, 2024</p>
-							</CardContent>
-						</Card>
-						<Card>
-							<CardContent className="p-6">
-								<h3 className="text-xl font-semibold mb-2">Application Deadline</h3>
-								<p className="text-primary">March 31, 2024</p>
-							</CardContent>
-						</Card>
-						<Card>
-							<CardContent className="p-6">
-								<h3 className="text-xl font-semibold mb-2">Results Announcement</h3>
-								<p className="text-primary">April 30, 2024</p>
-							</CardContent>
-						</Card>
+						<div>
+							<h3 className="text-2xl font-bold mb-4">
+								Join Us in Empowering Young Minds
+							</h3>
+							<p className="text-lg text-muted-foreground">
+								By supporting our Education Support Program, you can provide
+								vulnerable children with the education they deserve. Together, we
+								can unlock their potential and create a brighter future for
+								generations to come. Remember, helping one child reach his
+								paramount, you will be helping his future family and off springs.
+							</p>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* Call to Action */}
-			<section className="py-20 bg-primary text-primary-foreground">
-				<div className="container mx-auto px-4 text-center">
-					<h2 className="text-3xl font-bold mb-6">Ready to Apply?</h2>
-					<p className="text-xl mb-8 max-w-2xl mx-auto">
-						Take the first step towards your educational journey. Apply now or contact
-						us for more information about our scholarship programs.
-					</p>
+			<section className="py-20 bg-muted">
+				<div className="container mx-auto px-4 text-center max-w-4xl">
+					<h2 className="text-3xl font-bold mb-6">Get Involved</h2>
+					<div className="space-y-4 text-lg text-muted-foreground mb-8">
+						<p>
+							Can you do anything to support our education program? Is there a way for
+							you personally to get involved in even one child’s education?
+						</p>
+						<p>
+							Tell us how you think you can help to make a difference in their lives.
+						</p>
+					</div>
 					<div className="flex justify-center gap-4">
-						<Button size="lg" variant="secondary">
-							Apply Now
-						</Button>
+						<a href="/docs/KCF-Scholarship-Application-Form.docx" download>
+							<Button size="lg">Download Form</Button>
+						</a>
 						<Link to="/contact">
-							<Button
-								size="lg"
-								variant="outline"
-								className="bg-white/10 hover:bg-white/20"
-							>
+							<Button size="lg" variant="outline">
 								Contact Us
 							</Button>
 						</Link>

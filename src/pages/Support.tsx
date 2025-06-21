@@ -2,46 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-// Sample donation options - replace with actual data
-const donationOptions = [
-	{
-		id: 1,
-		title: "One-Time Donation",
-		description: "Make a single contribution to support our programs and initiatives.",
-		benefits: [
-			"Immediate impact on our programs",
-			"Tax-deductible donation receipt",
-			"Impact report on how your donation was used",
-			"Recognition on our donor wall (optional)",
-		],
-		suggested: ["$50", "$100", "$250", "$500", "Custom Amount"],
-	},
-	{
-		id: 2,
-		title: "Monthly Giving",
-		description: "Become a sustaining donor with a recurring monthly contribution.",
-		benefits: [
-			"Sustained support for long-term programs",
-			"Quarterly impact reports",
-			"Special recognition in our annual report",
-			"Exclusive updates from the field",
-		],
-		suggested: ["$25/month", "$50/month", "$100/month", "$200/month", "Custom Amount"],
-	},
-	{
-		id: 3,
-		title: "Sponsor a Child",
-		description: "Provide comprehensive support for a child's education and well-being.",
-		benefits: [
-			"Regular updates about your sponsored child",
-			"Direct correspondence with the child",
-			"Annual progress report",
-			"Visit opportunities",
-		],
-		suggested: ["$35/month", "$50/month", "$75/month", "Custom Amount"],
-	},
-];
-
 const impactExamples = [
 	{
 		amount: "$25",
@@ -98,7 +58,7 @@ export default function Support() {
 			{/* Hero Section */}
 			<section className="bg-muted py-20">
 				<div className="container mx-auto px-4">
-					<h1 className="text-4xl font-bold text-center mb-6">Support Our Cause</h1>
+					<h1 className="text-4xl font-bold text-center mb-6">Donate</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
 						Your support enables us to continue our mission of empowering children and
 						communities through education, healthcare, and sustainable development.
@@ -108,48 +68,57 @@ export default function Support() {
 
 			{/* Donation Options */}
 			<section className="py-20">
-				<div className="container mx-auto px-4">
-					<h2 className="text-3xl font-bold text-center mb-12">Ways to Give</h2>
-					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-						{donationOptions.map((option) => (
-							<Card key={option.id} className="flex flex-col">
-								<CardHeader>
-									<CardTitle>{option.title}</CardTitle>
-									<p className="text-muted-foreground mt-2">
-										{option.description}
-									</p>
-								</CardHeader>
-								<CardContent className="flex-1">
-									<div className="mb-6">
-										<h4 className="font-semibold mb-2">Benefits:</h4>
-										<ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-											{option.benefits.map((benefit, index) => (
-												<li key={index}>{benefit}</li>
-											))}
-										</ul>
-									</div>
-									<div>
-										<h4 className="font-semibold mb-2">Suggested Amounts:</h4>
-										<div className="grid grid-cols-2 gap-2">
-											{option.suggested.map((amount, index) => (
-												<Button
-													key={index}
-													variant={
-														index === option.suggested.length - 1
-															? "outline"
-															: "secondary"
-													}
-													className="w-full"
-												>
-													{amount}
-												</Button>
-											))}
-										</div>
-									</div>
-								</CardContent>
-							</Card>
-						))}
-					</div>
+				<div className="container mx-auto px-4 max-w-4xl">
+					<h2 className="text-3xl font-bold text-center mb-12">How to Donate</h2>
+					<Card>
+						<CardHeader>
+							<CardTitle>Direct Mobile Money Transfer</CardTitle>
+						</CardHeader>
+						<CardContent className="space-y-4">
+							<p className="text-muted-foreground">
+								We are in the process of setting up a dedicated donation platform.
+								In the meantime, you can support us directly using a money transfer
+								service like Remitly. This method ensures that 100% of your donation
+								reaches us without any platform fees.
+							</p>
+							<div className="p-4 bg-muted rounded-lg">
+								<h4 className="font-semibold mb-2">Instructions:</h4>
+								<ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+									<li>
+										Use your preferred money transfer service (we recommend{" "}
+										<a
+											href="https://www.remitly.com"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-primary underline"
+										>
+											Remitly
+										</a>
+										).
+									</li>
+									<li>
+										Choose delivery method: <strong>Mobile Money</strong>.
+									</li>
+									<li>
+										Select provider: <strong>MTN Mobile Money</strong>.
+									</li>
+									<li>
+										Set currency to: <strong>UGX (Ugandan Shilling)</strong>.
+									</li>
+									<li>
+										Send to: <strong>Kalikwani Mwesigwa</strong>
+									</li>
+									<li>
+										Phone Number: <strong>+256767241074</strong>
+									</li>
+								</ul>
+							</div>
+							<p className="text-sm text-center text-muted-foreground pt-4">
+								Many people prefer platforms, and we will add more options soon.
+								Thank you for your generosity!
+							</p>
+						</CardContent>
+					</Card>
 				</div>
 			</section>
 
@@ -199,18 +168,6 @@ export default function Support() {
 						donations are tax-deductible to the extent allowed by law. You will receive
 						a tax receipt for your donation.
 					</p>
-					<div className="bg-background p-6 rounded-lg">
-						<p className="font-medium mb-2">Bank Transfer Details:</p>
-						<p className="text-muted-foreground">
-							Bank: Centenary Bank
-							<br />
-							Account Name: Kalikwani Children's Foundation
-							<br />
-							Account Number: XXXX-XXXX-XXXX-XXXX
-							<br />
-							Swift Code: XXXXXXXXX
-						</p>
-					</div>
 				</div>
 			</section>
 

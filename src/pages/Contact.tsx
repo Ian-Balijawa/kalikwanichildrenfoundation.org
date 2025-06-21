@@ -15,11 +15,12 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react
 const contactInfo = [
 	{
 		title: "Main Office",
-		address: "Busota, Southern Division",
+		address: "Near Busota HC III, Kamuli - Jinja Rd.",
 		city: "Kamuli Municipality",
 		country: "Uganda",
-		phone: "+256 701 952867",
-		email: "info@kalikwanichildrenfoundation.org",
+		poBox: "P.O. Box 124, Kamuli, Uganda",
+		phones: ["+256 701 952 867", "+256 764 969 385", "+256 708 342 530", "+256 789 165 360"],
+		email: "kalikwanichildrenfoundation24@gmail.com",
 	},
 ];
 
@@ -159,7 +160,7 @@ export default function Contact() {
 						{/* Contact Information */}
 						<div className="space-y-8">
 							<div>
-								<h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+								<h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
 								<div className="grid gap-6">
 									{contactInfo.map((office, index) => (
 										<Card key={index}>
@@ -171,9 +172,13 @@ export default function Contact() {
 													<p>{office.address}</p>
 													<p>{office.city}</p>
 													<p>{office.country}</p>
-													<p className="pt-4">
-														<strong>Phone:</strong> {office.phone}
-													</p>
+													<p>{office.poBox}</p>
+													<div className="pt-4">
+														<strong>Phone:</strong>
+														{office.phones.map((phone, phoneIndex) => (
+															<p key={phoneIndex}>{phone}</p>
+														))}
+													</div>
 													<p>
 														<strong>Email:</strong> {office.email}
 													</p>
