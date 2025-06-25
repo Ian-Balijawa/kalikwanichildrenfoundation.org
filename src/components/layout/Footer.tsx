@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
 	return (
@@ -55,7 +56,17 @@ export function Footer() {
 						<ul className="space-y-2 text-sm">
 							<li>Busota, Southern Division</li>
 							<li>Kamuli Municipality, Uganda</li>
-							<li>Phone: +256 701 952867</li>
+							<li>
+								<a
+									href="https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center gap-2 text-primary underline"
+								>
+									<FaWhatsapp className="inline-block" />
+									+256 764 969 385
+								</a>
+							</li>
 							<li>Email: info@kalikwanichildrenfoundation.org</li>
 						</ul>
 					</div>

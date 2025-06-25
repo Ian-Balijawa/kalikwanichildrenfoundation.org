@@ -121,8 +121,8 @@ const projects = [
 		location: "Busota Village",
 		description:
 			"Construction of a new primary school building with 8 classrooms, a library, and administrative offices.",
-		impact: "Will provide quality education facilities for 400 students",
-		budget: "$150,000",
+		impact: "Will provide quality education facilities for 500 students",
+		budget: "€101,000",
 		progress: 35,
 		images: ["/images/IMG-20250123-WA0131.jpg", "/images/IMG-20250123-WA0130.jpg"],
 		updates: [

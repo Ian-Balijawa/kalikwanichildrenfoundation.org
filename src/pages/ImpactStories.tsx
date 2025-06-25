@@ -6,31 +6,28 @@ import { Link } from "react-router-dom";
 const impactStories = [
 	{
 		id: 1,
-		name: "Sarah Namukose",
-		age: 15,
+		name: "Nsamba Ruth",
+		age: 14,
 		program: "Education Initiative",
 		story: "Through KCF's scholarship program, I was able to continue my education at Mbulamuti Junior School. Today, I'm one of the top students in my class and dream of becoming a doctor to help my community.",
-		image: "/images/stories/sarah.jpg",
 		year: "2024",
 		quote: "Education has given me hope for a brighter future.",
 	},
 	{
 		id: 2,
-		name: "John Mukisa",
+		name: "Oketch Paul",
 		age: 17,
 		program: "Vocational Training",
 		story: "The vocational training program taught me valuable skills in agriculture. Now, I help manage the foundation's piggery project and can support my younger siblings.",
-		image: "/images/stories/john.jpg",
 		year: "2023",
 		quote: "I learned that with the right skills, I can create my own opportunities.",
 	},
 	{
 		id: 3,
-		name: "Grace Nabirye",
-		age: 14,
+		name: "Babirye Joyce",
+		age: 11,
 		program: "Community Support",
 		story: "After losing both parents, KCF provided me with a safe home, education, and a loving community. The foundation has become my second family.",
-		image: "/images/stories/grace.jpg",
 		year: "2023",
 		quote: "KCF gave me a second chance at life and happiness.",
 	},
@@ -75,13 +72,7 @@ export default function ImpactStories() {
 			<section className="py-20">
 				<div className="container mx-auto px-4">
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-						<div className="bg-muted rounded-lg aspect-square">
-							{/* Replace with actual image component */}
-							<div
-								className="w-full h-full bg-cover bg-center rounded-lg"
-								style={{ backgroundImage: `url(${impactStories[0].image})` }}
-							/>
-						</div>
+						<div></div>
 						<div>
 							<h2 className="text-3xl font-bold mb-6">Featured Story</h2>
 							<div className="space-y-6">
@@ -112,13 +103,6 @@ export default function ImpactStories() {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 						{impactStories.slice(1).map((story) => (
 							<Card key={story.id}>
-								<div className="aspect-video bg-muted relative overflow-hidden">
-									{/* Replace with actual image component */}
-									<div
-										className="w-full h-full bg-cover bg-center"
-										style={{ backgroundImage: `url(${story.image})` }}
-									/>
-								</div>
 								<CardHeader>
 									<CardTitle>{story.name}</CardTitle>
 									<p className="text-muted-foreground">

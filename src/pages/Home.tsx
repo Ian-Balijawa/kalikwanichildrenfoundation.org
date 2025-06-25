@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaWhatsapp } from "react-icons/fa";
 
 // Hero slider images
 const heroImages = [
@@ -45,9 +46,12 @@ export default function Home() {
 					</Slider>
 				</div>
 				<div className="container mx-auto px-4 relative z-20 text-center">
-					<h1 className="text-5xl font-bold mb-6">
-						Empowering Children, Transforming Lives
+					<h1 className="text-5xl font-bold mb-4">
+						Kalikwani Children's Foundation (KCF)
 					</h1>
+					<p className="text-2xl italic font-semibold mb-6 text-primary-foreground">
+						Empowering Children, Transforming Lives
+					</p>
 					<p className="text-xl mb-8 max-w-2xl mx-auto">
 						Join us in our mission to create a society where every child has equal
 						opportunities to thrive, grow, and reach their full potential.
@@ -67,6 +71,16 @@ export default function Home() {
 								Volunteer With Us
 							</Button>
 						</Link>
+						<a
+							href="https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Button size="lg" variant="outline" className="flex items-center gap-2">
+								<FaWhatsapp className="inline-block" />
+								WhatsApp
+							</Button>
+						</a>
 					</div>
 				</div>
 			</section>

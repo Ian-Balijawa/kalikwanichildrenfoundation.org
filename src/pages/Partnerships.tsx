@@ -45,19 +45,69 @@ export default function Partnerships() {
 							</Card>
 							<Card>
 								<CardHeader>
-									<CardTitle>Our Friends' Web Page</CardTitle>
+									<CardTitle>Find Us Online</CardTitle>
 								</CardHeader>
 								<CardContent>
-									<p className="text-muted-foreground">
-										Another webpage about us, built by our friends, also helps
-										spread the word. You can communicate with us directly
-										through that page, as it is linked to our email and other
-										contacts.
-									</p>
+									<ul className="space-y-2 text-muted-foreground">
+										<li>
+											<a
+												href="https://www.kalikwanichildrenfoundation.org"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-primary underline"
+											>
+												www.kalikwanichildrenfoundation.org
+											</a>
+										</li>
+										<li>
+											<a
+												href="https://www.kalikwanichildrensfoundationkcf.com"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-primary underline"
+											>
+												www.kalikwanichildrensfoundationkcf.com
+											</a>
+										</li>
+										<li>
+											<a
+												href="https://www.helpstay.com"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-primary underline"
+											>
+												HelpStay
+											</a>
+										</li>
+										<li>
+											<a
+												href="https://www.worldpackers.com"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-primary underline"
+											>
+												Worldpackers
+											</a>
+										</li>
+									</ul>
 								</CardContent>
 							</Card>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			{/* Key Statistics or Partner Schools Section (add or update as appropriate) */}
+			<section className="py-20">
+				<div className="container mx-auto px-4">
+					<h2 className="text-3xl font-bold text-center mb-12">Our Partner Schools</h2>
+					<ul className="max-w-xl mx-auto text-lg text-muted-foreground list-disc pl-6 space-y-2">
+						<li>Royal College Kamuli</li>
+						<li>Mbulamuti Junior School</li>
+						<li>Green Hill Nursery and Primary School</li>
+						<li>White Angels Junior School</li>
+						<li>Nyanza High School</li>
+					</ul>
 				</div>
 			</section>
 

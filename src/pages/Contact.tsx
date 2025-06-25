@@ -10,7 +10,14 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import {
+	FaFacebook,
+	FaTwitter,
+	FaInstagram,
+	FaLinkedin,
+	FaYoutube,
+	FaWhatsapp,
+} from "react-icons/fa";
 
 const contactInfo = [
 	{
@@ -20,7 +27,7 @@ const contactInfo = [
 		country: "Uganda",
 		poBox: "P.O. Box 124, Kamuli, Uganda",
 		phones: ["+256 701 952 867", "+256 764 969 385", "+256 708 342 530", "+256 789 165 360"],
-		email: "kalikwanichildrenfoundation24@gmail.com",
+		email: "kalikwani.csc2024@gmail.com",
 	},
 ];
 
@@ -175,9 +182,22 @@ export default function Contact() {
 													<p>{office.poBox}</p>
 													<div className="pt-4">
 														<strong>Phone:</strong>
-														{office.phones.map((phone, phoneIndex) => (
-															<p key={phoneIndex}>{phone}</p>
-														))}
+														{office.phones.map((phone, phoneIndex) =>
+															phoneIndex === 1 ? (
+																<a
+																	key={phoneIndex}
+																	href="https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0"
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	className="flex items-center gap-2 text-primary underline"
+																>
+																	<FaWhatsapp className="inline-block" />
+																	{phone}
+																</a>
+															) : (
+																<p key={phoneIndex}>{phone}</p>
+															)
+														)}
 													</div>
 													<p>
 														<strong>Email:</strong> {office.email}

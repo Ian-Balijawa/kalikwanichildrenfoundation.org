@@ -10,7 +10,7 @@ const opportunities = [
 		category: "Education",
 		commitment: "3-6 months",
 		schedule: "Monday to Friday, 8 AM - 4 PM",
-		location: "Busota Primary School",
+		location: "Royal College Kamuli",
 		description:
 			"Support teachers in classroom activities, assist with lesson planning, and help students with their studies.",
 		requirements: [
