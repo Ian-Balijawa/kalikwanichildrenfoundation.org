@@ -67,7 +67,7 @@ export function Footer() {
 									+256 764 969 385
 								</a>
 							</li>
-							<li>Email: info@kalikwanichildrenfoundation.org</li>
+							<li>Email: kalikwani.csc2024@gmail.com</li>
 						</ul>
 					</div>
 				</div>
