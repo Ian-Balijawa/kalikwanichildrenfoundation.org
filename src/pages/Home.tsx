@@ -56,7 +56,7 @@ export default function Home() {
 						Join us in our mission to create a society where every child has equal
 						opportunities to thrive, grow, and reach their full potential.
 					</p>
-					<div className="px-4 flex justify-center gap-4">
+					<div className="px-4 flex justify-center gap-4 flex-wrap">
 						<Link to="/support">
 							<Button size="lg" className="bg-primary hover:bg-primary/90">
 								Support Our Cause
@@ -71,16 +71,22 @@ export default function Home() {
 								Volunteer With Us
 							</Button>
 						</Link>
-						<a
-							href="https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0"
-							target="_blank"
-							rel="noopener noreferrer"
+					</div>
+					<div className="px-4 flex justify-center mt-4">
+						<Button
+							size="lg"
+							variant="outline"
+							className="bg-green flex items-center gap-2 w-full max-w-xs"
+							onClick={() => {
+								window.open(
+									"https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0",
+									"_blank"
+								);
+							}}
 						>
-							<Button size="lg" variant="outline" className="flex items-center gap-2">
-								<FaWhatsapp className="inline-block" />
-								WhatsApp
-							</Button>
-						</a>
+							<FaWhatsapp className="inline-block" />
+							WhatsApp
+						</Button>
 					</div>
 				</div>
 			</section>
