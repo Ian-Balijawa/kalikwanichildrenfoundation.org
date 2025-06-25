@@ -123,7 +123,7 @@ export default function Home() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-4xl font-bold text-primary text-center">
-									8
+									5
 								</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center">
