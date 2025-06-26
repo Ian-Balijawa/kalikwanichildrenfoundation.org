@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const coreValues = [
 	{
@@ -107,6 +110,23 @@ const staff = [
 ];
 
 export default function About() {
+	const [open, setOpen] = useState(false);
+	const [modalBio, setModalBio] = useState("");
+	const [modalName, setModalName] = useState("");
+
+	const anthony = {
+		name: "Anthony Zammit",
+		role: "Board Advisor for International Development",
+		image: "/team/anthony-zammit.jpg",
+		bio: `I'm Anthony Zammit, I am proud to be a board member of Kalikwani Children's Foundation. It's a blessing to be accepted into such a proficient organization in such an important endeavour.\n\nDear friend,\nSomeone, once said 'Give a fishing rod to a person and he will have food for the rest of his life.  I confess with you that I tried it when I was working in Peru but it never worked because one has to be a fisherman to fish, otherwise he will sell the fishing rod to the first buyer he finds, only to buy some rice with.  I tried it and failed with the chicken pens, I even gave a sewing machine to a promising lady. She sold it. I kind of gave up with them, and I focused on children, creating schools to make them fishermen before I give them the rod, make them farmers before I give them chicken coops, educate them in business and self-esteem before I give them any machine. This is why I created a school in Peru and this is why I am interested to become a member of this group.  Their ideas and motivations are on track. I hope that I will be able to join them in Uganda as I presently live in Malta, my home land. I am 69 years old.\n\nOur hope is to one day soon, become self sufficient and do not have to depend on any donations but it takes money to start, to build, to become self-reliant.  The whole of Africa, is 'Waking Up' and I am thrilled to be part of all this at this 'very special time in history'. Would YOU like to also be part of it? If you are a company and decide to help us financially, we as an NGO would be able to sign your tax exempt papers. Talk to us, we have many projects laid down to take life! These projects when they become active will give us tools, will give us books, new educational equipment and new life to so many, many students and poor families.  Help us erase the word 'poverty' and change it with dignity. Help us build a small but essential sanitary pad station for so many young ladies, a bee hive to make honey to sell and to give to the children, and so much more! Let us dedicate a project to you and put you on our history books of Kalikwani Children Support Centre.\n\nBe Blessed\nAnthony Zammit`,
+	};
+
+	const handleViewMore = () => {
+		setModalName(anthony.name);
+		setModalBio(anthony.bio);
+		setOpen(true);
+	};
+
 	return (
 		<div>
 			{/* Hero Section */}
@@ -212,7 +232,7 @@ export default function About() {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
 						{directors.map((member, index) => (
 							<Card key={index} className="flex flex-col">
-								<div className="relative w-full h-80">
+								<div className="relative w-full">
 									<img
 										src={member.image}
 										alt={member.name}
@@ -235,6 +255,49 @@ export default function About() {
 								</CardContent>
 							</Card>
 						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Board Advisor Section */}
+			<section className="py-20">
+				<div className="container mx-auto px-4">
+					<h2 className="text-3xl font-bold mb-12 text-center">
+						Board Advisor for International Development
+					</h2>
+					<div className="max-w-2xl mx-auto">
+						<Card className="flex flex-col md:flex-row overflow-hidden">
+							<div className="w-full md:w-1/3">
+								<img
+									src={anthony.image}
+									alt={anthony.name}
+									className="w-full h-full object-cover min-h-[200px]"
+								/>
+							</div>
+							<CardContent className="p-6 flex-1">
+								<h3 className="text-xl font-semibold mb-2">{anthony.name}</h3>
+								<p className="text-primary font-medium mb-4">{anthony.role}</p>
+								<p className="text-muted-foreground whitespace-pre-line mb-4">
+									{anthony.bio.slice(0, 220) + "..."}
+									<Button
+										size="sm"
+										variant="outline"
+										className="ml-2"
+										onClick={handleViewMore}
+									>
+										View More
+									</Button>
+								</p>
+							</CardContent>
+						</Card>
+						<Dialog open={open} onOpenChange={setOpen}>
+							<DialogContent className="max-w-2xl">
+								<DialogHeader>
+									<DialogTitle>{modalName}</DialogTitle>
+								</DialogHeader>
+								<div className="whitespace-pre-line">{modalBio}</div>
+							</DialogContent>
+						</Dialog>
 					</div>
 				</div>
 			</section>
