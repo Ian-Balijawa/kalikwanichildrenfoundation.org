@@ -167,8 +167,8 @@ const projects = [
 		description:
 			"Mobile health clinics providing basic healthcare services and health education.",
 		impact: "Served over 2,000 community members",
-		budget: "$45,000",
-		progress: 100,
+		budget: "$0",
+		progress: 0,
 		images: ["/images/IMG-20250123-WA0127.jpg", "/images/IMG-20250123-WA0126.jpg"],
 		updates: [
 			{
