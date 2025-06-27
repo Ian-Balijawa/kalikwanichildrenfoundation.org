@@ -123,7 +123,7 @@ const projects = [
 			"Construction of a new primary school building with 8 classrooms, a library, and administrative offices.",
 		impact: "Will provide quality education facilities for 500 students",
 		budget: "€101,000",
-		progress: 35,
+		progress: 0,
 		images: ["/images/IMG-20250123-WA0131.jpg", "/images/IMG-20250123-WA0130.jpg"],
 		updates: [
 			{
@@ -145,7 +145,7 @@ const projects = [
 		description:
 			"Community outreach to start October 2025 and will support 50 families, Location kamuli district",
 		budget: "$75,000",
-		progress: 70,
+		progress: 0,
 		images: ["/images/IMG-20250123-WA0129.jpg", "/images/IMG-20250123-WA0128.jpg"],
 		updates: [
 			{
