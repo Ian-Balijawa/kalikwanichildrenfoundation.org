@@ -100,13 +100,6 @@ export default function DecagonHomes() {
 										className="w-full h-full object-cover"
 									/>
 								</div>
-								<div className="aspect-square rounded-lg overflow-hidden">
-									<img
-										src="/image8.png"
-										alt="Future Vision"
-										className="w-full h-full object-cover"
-									/>
-								</div>
 							</div>
 
 							<h2>The Village Hub Project</h2>
