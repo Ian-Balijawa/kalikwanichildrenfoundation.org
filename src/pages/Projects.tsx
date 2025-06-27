@@ -23,7 +23,7 @@ const projects = [
 			"A revolutionary approach to orphan care, transforming the traditional orphanage model into a true family environment. Currently supporting 45 children aged 2-17, we're building a unique decagon-shaped complex of 10 family homes integrated with the innovative Village Hub project to provide genuine family structures rather than institutional care.",
 		impact: "Will provide family-style homes for 50 children and 10 house mothers while establishing a community-based social protection system",
 		budget: "$1,700,655.00 (6,270,502,185 UGX)",
-		progress: 15,
+		progress: 4,
 		images: ["/image1.png", "/image2.png", "/image3.png", "/image4.png", "/image5.png"],
 		details: {
 			concept:
@@ -75,7 +75,7 @@ const projects = [
 			"A transformative initiative providing energy-efficient ovens to poor families, reducing smoke-related health risks and deforestation while promoting dignity and environmental sustainability.",
 		impact: "Reducing deforestation by 60% per household, preventing smoke-related illnesses, and supporting education",
 		budget: "UGX 100,000 per oven (€30.00 or CAD40.00)",
-		progress: 25,
+		progress: 8,
 		images: ["/image6.png"],
 		details: {
 			concept:
@@ -113,7 +113,7 @@ const projects = [
 	},
 	{
 		id: 3,
-		title: "Busota Primary School Construction",
+		title: "Anthony Zammit Sigma School Construction",
 		category: "Education",
 		status: "Ongoing",
 		startDate: "January 2024",
@@ -143,8 +143,7 @@ const projects = [
 		endDate: "Ongoing",
 		location: "Busota Community",
 		description:
-			"Sustainable farming project teaching modern agricultural techniques and providing food security.",
-		impact: "Supporting 50 families with food and income",
+			"Community outreach to start October 2025 and will support 50 families, Location kamuli district",
 		budget: "$75,000",
 		progress: 70,
 		images: ["/images/IMG-20250123-WA0129.jpg", "/images/IMG-20250123-WA0128.jpg"],
@@ -164,10 +163,9 @@ const projects = [
 		startDate: "June 2023",
 		endDate: "December 2023",
 		location: "Multiple Villages",
-		description:
-			"Mobile health clinics providing basic healthcare services and health education.",
+		description: "To start January 2026, and will serve 2,000  people",
 		impact: "Served over 2,000 community members",
-		budget: "$0",
+		budget: "$50,000",
 		progress: 0,
 		images: ["/images/IMG-20250123-WA0127.jpg", "/images/IMG-20250123-WA0126.jpg"],
 		updates: [
