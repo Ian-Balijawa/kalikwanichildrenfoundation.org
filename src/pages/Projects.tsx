@@ -164,7 +164,7 @@ const projects = [
 		endDate: "December 2023",
 		location: "Multiple Villages",
 		description: "To start January 2026, and will serve 2,000  people",
-		impact: "Served over 2,000 community members",
+		impact: "It will server over 2,000 community members",
 		budget: "$50,000",
 		progress: 0,
 		images: ["/images/IMG-20250123-WA0127.jpg", "/images/IMG-20250123-WA0126.jpg"],
