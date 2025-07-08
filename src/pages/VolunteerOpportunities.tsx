@@ -17,7 +17,7 @@ const opportunities = [
 			"Teaching experience or education background",
 			"Fluent in English",
 			"Patient and good with children",
-			"Minimum 3-month commitment",
+			"2 weeks minimum period for volunteers ",
 		],
 		responsibilities: [
 			"Assist teachers with classroom management",
