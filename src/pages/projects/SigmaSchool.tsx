@@ -3,27 +3,26 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const constructionImages = [
-    "/construction/WhatsApp Image 2025-12-01 at 02.28.45 (1).jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.28.45.jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.28.46.jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.28.47 (1).jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.28.47.jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.28.48.jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.30.16 (1).jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.30.16.jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.30.17 (1).jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.30.17 (2).jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.30.17.jpeg",
-    "/construction/WhatsApp Image 2025-12-01 at 02.30.18.jpeg",
+    "/construction/8.jpg",
+    "/construction/9.jpg",
+    "/construction/10.jpg",
+    "/construction/11.jpg",
+    "/construction/12.jpg",
+    "/construction/13.jpg",
+    "/construction/14.jpg",
+    "/construction/15.jpg",
+    "/construction/16.jpg",
+    "/construction/17.jpg",
+    "/construction/18.jpg",
 ];
 
 const designImages = [
-    "/designs/WhatsApp Image 2025-12-01 at 05.36.24.jpeg",
-    "/designs/WhatsApp Image 2025-12-01 at 05.36.25.jpeg",
-    "/designs/WhatsApp Image 2025-12-01 at 05.36.26 (1).jpeg",
-    "/designs/WhatsApp Image 2025-12-01 at 05.36.26.jpeg",
-    "/designs/WhatsApp Image 2025-12-01 at 05.36.27 (1).jpeg",
-    "/designs/WhatsApp Image 2025-12-01 at 05.36.27.jpeg",
+    "/designs/1.jpg",
+    "/designs/2.jpg",
+    "/designs/3.jpg",
+    "/designs/4.jpg",
+    "/designs/5.jpg",
+    "/designs/6.jpg",
 ];
 
 export default function SigmaSchool() {
