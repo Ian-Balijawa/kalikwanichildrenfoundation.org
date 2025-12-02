@@ -8,10 +8,11 @@ import { FaWhatsapp } from "react-icons/fa";
 
 // Hero slider images
 const heroImages = [
-	"/images/IMG-20250123-WA0146.jpg",
-	"/images/IMG-20250123-WA0145.jpg",
-	"/images/IMG-20250123-WA0144.jpg",
-	"/images/IMG-20250123-WA0143.jpg",
+	"/images/IMG-20250624-WA0017.jpg",
+	"/images/IMG-20250624-WA0018.jpg",
+	"/images/IMG-20250624-WA0026.jpg",
+	"/images/IMG-20250624-WA0027.jpg",
+	"/images/4.jpg"
 ];
 
 export default function Home() {
