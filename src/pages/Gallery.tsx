@@ -9,7 +9,15 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 
-const galleryItems = [
+function shuffleArray(array: any[]) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+}
+
+const galleryItems = shuffleArray([
 	{
 		id: 1,
 		title: "Education Program Activities",
@@ -194,7 +202,55 @@ const galleryItems = [
 		description: "A moment from our community.",
 		image: "/images/IMG-20250625-WA0002.jpg",
 	},
-];
+	{
+		id: 26,
+		title: "Community Moments",
+		category: "others",
+		date: "2024",
+		description: "A moment from our community.",
+		image: "/images/1.jpg",
+	},
+	{
+		id: 27,
+		title: "Community Moments",
+		category: "others",
+		date: "2024",
+		description: "A moment from our community.",
+		image: "/images/2.jpg",
+	},
+	{
+		id: 28,
+		title: "Community Moments",
+		category: "others",
+		date: "2024",
+		description: "A moment from our community.",
+		image: "/images/3.jpg",
+	},
+	{
+		id: 29,
+		title: "Community Moments",
+		category: "others",
+		date: "2024",
+		description: "A moment from our community.",
+		image: "/images/4.jpg",
+	},
+	{
+		id: 29,
+		title: "Community Moments",
+		category: "others",
+		date: "2024",
+		description: "A moment from our community.",
+		image: "/images/5.jpg",
+	},
+	{
+		id: 30,
+		title: "Community Moments",
+		category: "others",
+		date: "2024",
+		description: "A moment from our community.",
+		image: "/images/6.jpg",
+	},
+]);
 
 // Function to extract YouTube video ID from URL
 function getYouTubeVideoId(url: string) {

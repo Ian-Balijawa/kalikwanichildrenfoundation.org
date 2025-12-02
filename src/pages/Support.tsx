@@ -55,74 +55,64 @@ const otherWaysToSupport = [
 export default function Support() {
 	return (
 		<div>
-			{/* Hero Section */}
 			<section className="bg-muted py-20">
 				<div className="container mx-auto px-4">
 					<h1 className="text-4xl font-bold text-center mb-6">Donate</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
-						Your support enables us to continue our mission of empowering children and
-						communities through education, healthcare, and sustainable development.
+						Your generosity helps us empower children and communities through education,
+						healthcare, and sustainable development. Thank you for making a difference.
 					</p>
 				</div>
 			</section>
 
-			{/* Donation Options */}
 			<section className="py-20">
 				<div className="container mx-auto px-4 max-w-4xl">
 					<h2 className="text-3xl font-bold text-center mb-12">How to Donate</h2>
+
 					<Card>
 						<CardHeader>
-							<CardTitle>Direct Mobile Money Transfer</CardTitle>
+							<CardTitle>Bank Transfer Details</CardTitle>
 						</CardHeader>
-						<CardContent className="space-y-4">
-							<p className="text-muted-foreground">
-								We are in the process of setting up a dedicated donation platform.
-								In the meantime, you can support us directly using a money transfer
-								service like Remitly. This method ensures that 100% of your donation
-								reaches us without any platform fees.
-							</p>
+
+						<CardContent className="space-y-8">
 							<div className="p-4 bg-muted rounded-lg">
-								<h4 className="font-semibold mb-2">Instructions:</h4>
-								<ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-									<li>
-										Use your preferred money transfer service (we recommend{" "}
-										<a
-											href="https://www.remitly.com"
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-primary underline"
-										>
-											Remitly
-										</a>
-										).
-									</li>
-									<li>
-										Choose delivery method: <strong>Mobile Money</strong>.
-									</li>
-									<li>
-										Select provider: <strong>MTN Mobile Money</strong>.
-									</li>
-									<li>
-										Set currency to: <strong>UGX (Ugandan Shilling)</strong>.
-									</li>
-									<li>
-										Send to: <strong>Kalikwani Mwesigwa</strong>
-									</li>
-									<li>
-										Phone Number: <strong>+256767241074</strong>
-									</li>
+								<h3 className="text-xl font-semibold mb-4">USD Account</h3>
+								<ul className="space-y-2 text-muted-foreground">
+									<li><strong>Bank:</strong> Housing Finance Bank</li>
+									<li><strong>Customer Number:</strong> 00132494</li>
+									<li><strong>Account Name:</strong> Kalikwani Children's Home (KCH) Limited</li>
+									<li><strong>Account Number:</strong> 1160000013542</li>
 								</ul>
 							</div>
+
+							<div className="p-4 bg-muted rounded-lg">
+								<h3 className="text-xl font-semibold mb-4">EURO Account</h3>
+								<ul className="space-y-2 text-muted-foreground">
+									<li><strong>Bank:</strong> Housing Finance Bank</li>
+									<li><strong>Customer Number:</strong> 00132494</li>
+									<li><strong>Account Name:</strong> Kalikwani Children’s Home (KCH)</li>
+									<li><strong>Account Number:</strong> 11600000613440</li>
+								</ul>
+							</div>
+
+							<div className="p-4 bg-muted rounded-lg">
+								<h3 className="text-xl font-semibold mb-4">UGX Account</h3>
+								<ul className="space-y-2 text-muted-foreground">
+									<li><strong>Bank:</strong> Housing Finance Bank</li>
+									<li><strong>Customer Number:</strong> 00132494</li>
+									<li><strong>Account Name:</strong> Kalikwani Children’s Home (KCH)</li>
+									<li><strong>Account Number:</strong> 1160000013349</li>
+								</ul>
+							</div>
+
 							<p className="text-sm text-center text-muted-foreground pt-4">
-								Many people prefer platforms, and we will add more options soon.
-								Thank you for your generosity!
+								Thank you for your generosity. Every contribution helps transform lives.
 							</p>
 						</CardContent>
 					</Card>
 				</div>
 			</section>
 
-			{/* Impact Section */}
 			<section className="py-20 bg-muted">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold text-center mb-12">Your Impact</h2>
@@ -141,7 +131,6 @@ export default function Support() {
 				</div>
 			</section>
 
-			{/* Other Ways to Support */}
 			<section className="py-20">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold text-center mb-12">Other Ways to Support</h2>
@@ -159,25 +148,22 @@ export default function Support() {
 				</div>
 			</section>
 
-			{/* Tax Information */}
 			<section className="py-20 bg-muted">
 				<div className="container mx-auto px-4 max-w-4xl text-center">
 					<h2 className="text-3xl font-bold mb-6">Tax Information</h2>
 					<p className="text-lg text-muted-foreground mb-8">
-						Kalikwani Children's Foundation is a registered non-profit organization. All
-						donations are tax-deductible to the extent allowed by law. You will receive
-						a tax receipt for your donation.
+						Kalikwani Children's Foundation is a registered non-profit organization.
+						All donations are tax-deductible where applicable. A receipt will be provided.
 					</p>
 				</div>
 			</section>
 
-			{/* Contact Section */}
 			<section className="py-20 bg-primary text-primary-foreground">
 				<div className="container mx-auto px-4 text-center">
 					<h2 className="text-3xl font-bold mb-6">Questions About Giving?</h2>
 					<p className="text-xl mb-8 max-w-2xl mx-auto">
-						Our team is here to help you make the most meaningful contribution possible.
-						Contact us to discuss your giving options.
+						We are here to help you make the most meaningful contribution possible.
+						Reach out with any questions.
 					</p>
 					<div className="flex justify-center gap-4">
 						<Link to="/contact">

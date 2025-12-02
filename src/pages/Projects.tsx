@@ -13,6 +13,36 @@ import { Link } from "react-router-dom";
 const projects = [
 	{
 		id: 1,
+		title: "Anthony Zammit Sigma School Construction",
+		category: "Education",
+		status: "Ongoing",
+		startDate: "January 2024",
+		endDate: "December 2024",
+		location: "Nawaikoke Kaliro, Uganda",
+		description:
+			"Construction of a new primary school building with 8 classrooms, a library, and administrative offices. The Sigma Foundation of Malta has generously contributed €25,944 towards this transformative project. We are actively seeking additional funding to complete the construction and provide quality education infrastructure for 500 students in our community.",
+		impact: "Will provide quality education facilities for 500 students",
+		budget: "€101,000 (€25,944 received from Sigma Foundation)",
+		progress: 35,
+		images: [
+			"/construction/WhatsApp Image 2025-12-01 at 02.28.45.jpeg",
+			"/construction/WhatsApp Image 2025-12-01 at 02.28.46.jpeg",
+			"/construction/WhatsApp Image 2025-12-01 at 02.28.47 (1).jpeg",
+			"/construction/WhatsApp Image 2025-12-01 at 02.28.48.jpeg",
+			"/designs/WhatsApp Image 2025-12-01 at 05.36.24.jpeg",
+			"/designs/WhatsApp Image 2025-12-01 at 05.36.25.jpeg",
+		],
+		updates: [
+			{
+				date: "March 15, 2024",
+				title: "Foundation Complete",
+				description:
+					"The foundation work has been completed and wall construction has begun.",
+			},
+		],
+	},
+	{
+		id: 2,
 		title: "Decagon Family Homes Project",
 		category: "Housing",
 		status: "Planning",
@@ -64,7 +94,7 @@ const projects = [
 		contractor: "Kasthew Construction UG Ltd. (www.kasthew-construction.com)",
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Oven Flair Project",
 		category: "Community",
 		status: "Ongoing",
@@ -112,29 +142,6 @@ const projects = [
 		videoUrl: "https://youtu.be/1WAkx8F5HVs?si=d0eHG0Hr53PGy-l_",
 	},
 	{
-		id: 3,
-		title: "Anthony Zammit Sigma School Construction",
-		category: "Education",
-		status: "Ongoing",
-		startDate: "January 2024",
-		endDate: "December 2024",
-		location: "Busota Village",
-		description:
-			"Construction of a new primary school building with 8 classrooms, a library, and administrative offices.",
-		impact: "Will provide quality education facilities for 500 students",
-		budget: "€101,000",
-		progress: 0,
-		images: ["/images/IMG-20250123-WA0131.jpg", "/images/IMG-20250123-WA0130.jpg"],
-		updates: [
-			{
-				date: "March 15, 2024",
-				title: "Foundation Complete",
-				description:
-					"The foundation work has been completed and wall construction has begun.",
-			},
-		],
-	},
-	{
 		id: 4,
 		title: "Community Farm Initiative",
 		category: "Agriculture",
@@ -143,7 +150,7 @@ const projects = [
 		endDate: "Ongoing",
 		location: "Busota Community",
 		description:
-			"Community outreach to start October 2025 and will support 50 families, Location kamuli district",
+			"Community outreach to start October 2025 and will support 50 families, Location kamuli district",
 		budget: "$75,000",
 		progress: 0,
 		images: ["/images/IMG-20250123-WA0129.jpg", "/images/IMG-20250123-WA0128.jpg"],
@@ -276,9 +283,8 @@ export default function Projects() {
 													<img
 														key={index}
 														src={image}
-														alt={`${project.title} - Image ${
-															index + 2
-														}`}
+														alt={`${project.title} - Image ${index + 2
+															}`}
 														className="h-16 w-24 object-cover rounded-md"
 													/>
 												))}
@@ -332,13 +338,21 @@ export default function Projects() {
 										</dl>
 										{project.id === 1 && (
 											<Link
-												to="/projects/decagon-homes"
+												to="/projects/sigma-school"
 												className="mt-6 inline-block"
 											>
 												<Button>View Full Project Details</Button>
 											</Link>
 										)}
 										{project.id === 2 && (
+											<Link
+												to="/projects/decagon-homes"
+												className="mt-6 inline-block"
+											>
+												<Button>View Full Project Details</Button>
+											</Link>
+										)}
+										{project.id === 3 && (
 											<Link
 												to="/projects/oven-flair"
 												className="mt-6 inline-block"
