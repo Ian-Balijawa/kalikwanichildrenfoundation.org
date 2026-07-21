@@ -26,7 +26,7 @@ const contactInfo = [
 		city: "Kamuli Municipality",
 		country: "Uganda",
 		poBox: "P.O. Box 124, Kamuli, Uganda",
-		phones: ["+256 701 952 867", "+256 764 969 385", "+256 708 342 530", "+256 789 165 360"],
+		phones: ["+256 701 952 867", "+256 767 241 074", "+256 708 342 530", "+256 789 165 360"],
 		email: "kalikwani.csc2024@gmail.com",
 	},
 ];
