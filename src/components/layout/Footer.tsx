@@ -7,9 +7,9 @@ export function Footer() {
 			<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 					<div>
-						<h3 className="text-lg font-semibold mb-4">About KCF</h3>
+						<h3 className="text-lg font-semibold mb-4">About KCSC</h3>
 						<p className="text-sm">
-							Kalikwani Children's Foundation is dedicated to empowering children and
+							Kalikwani Children's Support Centre is dedicated to empowering children and
 							transforming lives through education, support, and community
 							development.
 						</p>
@@ -58,7 +58,7 @@ export function Footer() {
 							<li>Kamuli Municipality, Uganda</li>
 							<li>
 								<a
-									href="https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0"
+									href="https://api.whatsapp.com/send/?phone=%2B256767241074&text&type=phone_number&app_absent=0"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="flex items-center gap-2 text-primary underline"
@@ -74,7 +74,7 @@ export function Footer() {
 
 				<div className="mt-8 pt-8 border-t border-primary-foreground/20 text-center text-sm">
 					<p>
-						&copy; {new Date().getFullYear()} Kalikwani Children's Foundation. All
+						&copy; {new Date().getFullYear()} Kalikwani Children's Support Centre. All
 						rights reserved.
 					</p>
 				</div>

@@ -12,7 +12,7 @@ const newsItems = [
 		summary:
 			"Construction of our new primary and nursery school in Kaliro district has commenced, marking a significant milestone in our mission to provide quality education.",
 		image: "/images/news/school-construction.jpg",
-		author: "KCF Team",
+		author: "KCSC Team",
 	},
 	{
 		id: 2,
@@ -50,7 +50,7 @@ const newsItems = [
 		date: "November 15, 2023",
 		category: "Partnerships",
 		summary:
-			"Students from Islamic University In Uganda have joined forces with KCF to support our mission through various community initiatives.",
+			"Students from Islamic University In Uganda have joined forces with KCSC to support our mission through various community initiatives.",
 		image: "/images/news/partnership.jpg",
 		author: "Partnership Team",
 	},

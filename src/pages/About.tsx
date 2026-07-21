@@ -41,7 +41,7 @@ const directors = [
 		name: "Samuel Mwesigwa",
 		role: "Director & CEO",
 		image: "/team/Sam-Kalikwani-1.png",
-		quote: "Welcome, everyone! I'm Samuel Mwesigwa, CEO and Director of Kalikwani Children's Foundation. It's an honor to lead this incredible organization dedicated to transforming lives.",
+		quote: "Welcome, everyone! I'm Samuel Mwesigwa, CEO and Director of Kalikwani Children's Support Centre. It's an honor to lead this incredible organization dedicated to transforming lives.",
 		details: [
 			"At Kalikwani, we believe in the power of education, empowerment, and love. We've already made a significant impact, supporting over 50 children in accessing education through our partnerships with local schools. But our vision goes beyond just education. We're committed to empowering teenagers with skills and knowledge to thrive in life. Our programs focus on mentorship, leadership development, and vocational training, preparing them for a bright future. But we can't do it alone. We need your support to expand our initiatives, open new schools, hospitals, and homes for the most vulnerable. Your donation will help us:",
 			"Provide educational resources and scholarships",
@@ -55,7 +55,7 @@ const directors = [
 		name: "Ivan Waiswa",
 		role: "Director & Chief Advisor",
 		image: "/team/Ivan-Waiswa-Advisor-Kalikwani-Childrens-Foundation-683x1024.png",
-		quote: "Dear friends and supporters, As Director and Chief Advisor of Kalikwani Children's Foundation, I'm privileged to lead a team of dedicated individuals who share a common vision: to create a brighter future for vulnerable children and teenagers.",
+		quote: "Dear friends and supporters, As Director and Chief Advisor of Kalikwani Children's Support Centre, I'm privileged to lead a team of dedicated individuals who share a common vision: to create a brighter future for vulnerable children and teenagers.",
 		details: [
 			"Our journey began with a simple yet powerful idea: that every child deserves access to quality education, healthcare, and a loving home. Today, we're proud to have made a significant impact in the lives of over 50 children, with many more waiting to benefit from our programs. But our work is far from over.",
 			"We need your support to expand our initiatives, to reach more children, and to create a lasting legacy of hope. As a director and chief advisor, I've seen the power of collaboration and the impact of your donations.",
@@ -66,7 +66,7 @@ const directors = [
 		name: "Jeremiah Buyinza",
 		role: "Director & Permanent Secretary",
 		image: "/team/Jeremiah-Buyinza.png",
-		quote: "I'm Jeremiah Buyinza, Director and Permanent Secretary of Kalikwani Children's Foundation. It's a privilege to serve this noble organization dedicated to transforming the lives of vulnerable children and teenagers.",
+		quote: "I'm Jeremiah Buyinza, Director and Permanent Secretary of Kalikwani Children's Support Centre. It's a privilege to serve this noble organization dedicated to transforming the lives of vulnerable children and teenagers.",
 		details: [
 			"As Permanent Secretary, I've witnessed firsthand the impact of our programs. We've empowered over 50 children to access education, and countless teenagers have benefited from our skills and empowerment programs. But our work is far from over. We have a vision to expand our reach, opening new schools, hospitals, and homes for those who need it most. We require resources and support to make this vision a reality.",
 			"I urge you to join us in this noble endeavor. Your donation will help us:",
@@ -81,7 +81,7 @@ const directors = [
 		name: "Benjamin Musasizi",
 		role: "Head of Finance & Administration",
 		image: "/team/IMG-20240708-WA0001.jpg",
-		quote: "Dear esteemed guests and supporters, Am Benjamin Musasizi, As the Head of Finance and Administration at Kalikwani Children's Foundation, I'm responsible for ensuring that our resources are allocated efficiently and effectively to support our mission.",
+		quote: "Dear esteemed guests and supporters, Am Benjamin Musasizi, As the Head of Finance and Administration at Kalikwani Children's Support Centre, I'm responsible for ensuring that our resources are allocated efficiently and effectively to support our mission.",
 		details: [
 			"I'm proud to report that our financial management has been prudent and transparent, allowing us to maximize the impact of your donations. Every shilling, every dollar, has been invested in creating a brighter future for the children and teenagers under our care.",
 			"Our financial sustainability is crucial to the longevity of our programs. Your support has enabled us to:",
@@ -100,7 +100,7 @@ const staff = [
 		image: "/team/staff-856x1024.png",
 		quote: "Unlocking Potential, Unbridling Hope",
 		details: [
-			"On this digital platform, I stand with pride, representing the Kalikwani Children's Foundation. Our journey has been a testament to the transformative power of community and compassion.",
+			"On this digital platform, I stand with pride, representing the Kalikwani Children's Support Centre. Our journey has been a testament to the transformative power of community and compassion.",
 			"We have witnessed the resilience of young hearts, the determination of young minds, and the beauty of young souls. We have seen hope kindled, dreams ignited, and futures reshaped.",
 			"Our mission is to nurture, to educate, and to empower. We strive to create a world where every child can laugh, learn, and thrive. A world where every child can become the master of their destiny.",
 			"Together, let us break down barriers, let us bridge gaps, and let us build a brighter tomorrow. Let us unlock the potential within each child, and let us unbridle the hope that resides in every young heart.",
@@ -118,7 +118,7 @@ export default function About() {
 		name: "Anthony Zammit",
 		role: "Board Advisor for International Development",
 		image: "/team/anthony-zammit.jpg",
-		bio: `I'm Anthony Zammit, I am proud to be a board member of Kalikwani Children's Foundation. It's a blessing to be accepted into such a proficient organization in such an important endeavour.\n\nDear friend,\nSomeone, once said 'Give a fishing rod to a person and he will have food for the rest of his life.  I confess with you that I tried it when I was working in Peru but it never worked because one has to be a fisherman to fish, otherwise he will sell the fishing rod to the first buyer he finds, only to buy some rice with.  I tried it and failed with the chicken pens, I even gave a sewing machine to a promising lady. She sold it. I kind of gave up with them, and I focused on children, creating schools to make them fishermen before I give them the rod, make them farmers before I give them chicken coops, educate them in business and self-esteem before I give them any machine. This is why I created a school in Peru and this is why I am interested to become a member of this group.  Their ideas and motivations are on track. I hope that I will be able to join them in Uganda as I presently live in Malta, my home land. I am 69 years old.\n\nOur hope is to one day soon, become self sufficient and do not have to depend on any donations but it takes money to start, to build, to become self-reliant.  The whole of Africa, is 'Waking Up' and I am thrilled to be part of all this at this 'very special time in history'. Would YOU like to also be part of it? If you are a company and decide to help us financially, we as an NGO would be able to sign your tax exempt papers. Talk to us, we have many projects laid down to take life! These projects when they become active will give us tools, will give us books, new educational equipment and new life to so many, many students and poor families.  Help us erase the word 'poverty' and change it with dignity. Help us build a small but essential sanitary pad station for so many young ladies, a bee hive to make honey to sell and to give to the children, and so much more! Let us dedicate a project to you and put you on our history books of Kalikwani Children Support Centre.\n\nBe Blessed\nAnthony Zammit`,
+		bio: `I'm Anthony Zammit, I am proud to be a board member of Kalikwani Children's Support Centre. It's a blessing to be accepted into such a proficient organization in such an important endeavour.\n\nDear friend,\nSomeone, once said 'Give a fishing rod to a person and he will have food for the rest of his life.  I confess with you that I tried it when I was working in Peru but it never worked because one has to be a fisherman to fish, otherwise he will sell the fishing rod to the first buyer he finds, only to buy some rice with.  I tried it and failed with the chicken pens, I even gave a sewing machine to a promising lady. She sold it. I kind of gave up with them, and I focused on children, creating schools to make them fishermen before I give them the rod, make them farmers before I give them chicken coops, educate them in business and self-esteem before I give them any machine. This is why I created a school in Peru and this is why I am interested to become a member of this group.  Their ideas and motivations are on track. I hope that I will be able to join them in Uganda as I presently live in Malta, my home land. I am 69 years old.\n\nOur hope is to one day soon, become self sufficient and do not have to depend on any donations but it takes money to start, to build, to become self-reliant.  The whole of Africa, is 'Waking Up' and I am thrilled to be part of all this at this 'very special time in history'. Would YOU like to also be part of it? If you are a company and decide to help us financially, we as an NGO would be able to sign your tax exempt papers. Talk to us, we have many projects laid down to take life! These projects when they become active will give us tools, will give us books, new educational equipment and new life to so many, many students and poor families.  Help us erase the word 'poverty' and change it with dignity. Help us build a small but essential sanitary pad station for so many young ladies, a bee hive to make honey to sell and to give to the children, and so much more! Let us dedicate a project to you and put you on our history books of Kalikwani Children Support Centre.\n\nBe Blessed\nAnthony Zammit`,
 	};
 
 	const handleViewMore = () => {
@@ -133,10 +133,10 @@ export default function About() {
 			<section className="bg-muted py-20">
 				<div className="container mx-auto px-4">
 					<h1 className="text-4xl font-bold text-center mb-6">
-						About Kalikwani Children's Foundation (KCF)
+						About Kalikwani Children's Support Centre (KCSC)
 					</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
-						Kalikwani Children's Foundation (KCF) is a non-profit charitable foundation
+						Kalikwani Children's Support Centre (KCSC) is a non-profit charitable foundation
 						dedicated to creating positive change in the lives of vulnerable children
 						and teenagers in Kamuli, Uganda.
 					</p>
@@ -190,13 +190,13 @@ export default function About() {
 						</p>
 						<p className="text-lg text-muted-foreground mb-6">
 							Driven by their personal journey and a deep sense of gratitude, they
-							embarked on a mission to establish the Kalikwani Children's Foundation.
+							embarked on a mission to establish the Kalikwani Children's Support Centre.
 							With unwavering commitment and an unyielding spirit, they focused on
 							providing hope and empowerment to teenagers, vulnerable children, and
 							those facing homelessness in our community.
 						</p>
 						<p className="text-lg text-muted-foreground">
-							Kalikwani Children's Foundation is dedicated to all people with the
+							Kalikwani Children's Support Centre is dedicated to all people with the
 							spirit of compassion with humility and all people are free to join it
 							irrespective of any kind of discrimination, amongst others including
 							religion, tribe, region, race, gender, color, status in society, and

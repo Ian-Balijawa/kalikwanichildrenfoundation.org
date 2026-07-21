@@ -23,7 +23,7 @@ export function MobileNav() {
 				<SheetContent side="right">
 					<nav className="flex flex-col space-y-4">
 						<Link to="/" className="flex items-center space-x-2 mb-4">
-							<span className="text-2xl font-bold text-primary">KCF</span>
+							<span className="text-2xl font-bold text-primary">KCSC</span>
 						</Link>
 
 						<motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>

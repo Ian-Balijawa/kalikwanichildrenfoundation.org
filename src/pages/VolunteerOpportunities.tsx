@@ -54,7 +54,7 @@ const opportunities = [
 		category: "Farming",
 		commitment: "3-12 months",
 		schedule: "Monday to Saturday, flexible hours",
-		location: "KCF Farm Projects",
+		location: "KCSC Farm Projects",
 		description:
 			"Support our sustainable farming initiatives and help train community members in modern agricultural practices.",
 		requirements: [

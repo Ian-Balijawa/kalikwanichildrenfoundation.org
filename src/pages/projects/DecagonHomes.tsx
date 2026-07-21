@@ -105,7 +105,7 @@ export default function DecagonHomes() {
 							<h2>The Village Hub Project</h2>
 							<div className="bg-muted p-6 rounded-lg my-8">
 								<p>
-									KCF is working to build a public social protection system in
+									KCSC is working to build a public social protection system in
 									Uganda, run by local communities, to dismantle the structural
 									root causes of poverty through the Village Hub Project. Based in
 									Kamuli District, this initiative aims to:

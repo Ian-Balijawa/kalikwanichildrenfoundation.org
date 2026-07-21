@@ -42,7 +42,7 @@ const otherWaysToSupport = [
 	},
 	{
 		title: "Legacy Giving",
-		description: "Include KCF in your estate planning to create lasting change.",
+		description: "Include KCSC in your estate planning to create lasting change.",
 		icon: "🌱",
 	},
 	{
@@ -152,7 +152,7 @@ export default function Support() {
 				<div className="container mx-auto px-4 max-w-4xl text-center">
 					<h2 className="text-3xl font-bold mb-6">Tax Information</h2>
 					<p className="text-lg text-muted-foreground mb-8">
-						Kalikwani Children's Foundation is a registered non-profit organization.
+						Kalikwani Children's Support Centre is a registered non-profit organization.
 						All donations are tax-deductible where applicable. A receipt will be provided.
 					</p>
 				</div>

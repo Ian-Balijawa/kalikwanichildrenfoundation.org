@@ -48,7 +48,7 @@ export default function Home() {
 				</div>
 				<div className="container mx-auto px-4 relative z-20 text-center">
 					<h1 className="text-5xl font-bold mb-4">
-						Kalikwani Children's Foundation (KCF)
+						Kalikwani Children's Support Centre (KCSC)
 					</h1>
 					<p className="text-2xl italic font-semibold mb-6 text-primary-foreground">
 						Empowering Children, Transforming Lives
@@ -80,7 +80,7 @@ export default function Home() {
 							className="bg-green flex items-center gap-2 w-full max-w-xs"
 							onClick={() => {
 								window.open(
-									"https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0",
+									"https://api.whatsapp.com/send/?phone=%2B256767241074&text&type=phone_number&app_absent=0",
 									"_blank"
 								);
 							}}

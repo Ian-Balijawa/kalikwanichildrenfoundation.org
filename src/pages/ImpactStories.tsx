@@ -9,7 +9,7 @@ const impactStories = [
 		name: "Nsamba Ruth",
 		age: 14,
 		program: "Education Initiative",
-		story: "Through KCF's scholarship program, I was able to continue my education at Mbulamuti Junior School. Today, I'm one of the top students in my class and dream of becoming a doctor to help my community.",
+		story: "Through KCSC's scholarship program, I was able to continue my education at Mbulamuti Junior School. Today, I'm one of the top students in my class and dream of becoming a doctor to help my community.",
 		year: "2024",
 		quote: "Education has given me hope for a brighter future.",
 	},
@@ -27,9 +27,9 @@ const impactStories = [
 		name: "Babirye Joyce",
 		age: 11,
 		program: "Community Support",
-		story: "After losing both parents, KCF provided me with a safe home, education, and a loving community. The foundation has become my second family.",
+		story: "After losing both parents, KCSC provided me with a safe home, education, and a loving community. The foundation has become my second family.",
 		year: "2023",
-		quote: "KCF gave me a second chance at life and happiness.",
+		quote: "KCSC gave me a second chance at life and happiness.",
 	},
 ];
 
@@ -40,7 +40,7 @@ const testimonials = [
 		role: "International Volunteer",
 		country: "Taiwan",
 		testimonial:
-			"Volunteering with KCF was a life-changing experience. The dedication of the team and the resilience of the children are truly inspiring.",
+			"Volunteering with KCSC was a life-changing experience. The dedication of the team and the resilience of the children are truly inspiring.",
 		image: "/images/testimonials/cheng.jpg",
 	},
 	{
@@ -49,7 +49,7 @@ const testimonials = [
 		role: "Donor Partner",
 		country: "Malta",
 		testimonial:
-			"Seeing the direct impact of our support on these children's lives has been incredibly rewarding. KCF's transparency and commitment to their mission is commendable.",
+			"Seeing the direct impact of our support on these children's lives has been incredibly rewarding. KCSC's transparency and commitment to their mission is commendable.",
 		image: "/images/testimonials/anthony.jpg",
 	},
 ];

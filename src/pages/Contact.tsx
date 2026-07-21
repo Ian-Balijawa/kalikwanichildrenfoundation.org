@@ -186,7 +186,7 @@ export default function Contact() {
 															phoneIndex === 1 ? (
 																<a
 																	key={phoneIndex}
-																	href="https://api.whatsapp.com/send/?phone=%2B256764969385&text&type=phone_number&app_absent=0"
+																	href="https://api.whatsapp.com/send/?phone=%2B256767241074&text&type=phone_number&app_absent=0"
 																	target="_blank"
 																	rel="noopener noreferrer"
 																	className="flex items-center gap-2 text-primary underline"

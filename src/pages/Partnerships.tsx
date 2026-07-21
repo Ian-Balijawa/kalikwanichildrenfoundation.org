@@ -61,12 +61,12 @@ export default function Partnerships() {
 										</li>
 										<li>
 											<a
-												href="https://www.kalikwanichildrensfoundationkcf.com"
+												href="https://www.kalikwanichildrensfoundationKCSC.com"
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-primary underline"
 											>
-												www.kalikwanichildrensfoundationkcf.com
+												www.kalikwanichildrensfoundationKCSC.com
 											</a>
 										</li>
 										<li>

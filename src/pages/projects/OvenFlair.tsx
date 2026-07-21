@@ -143,7 +143,7 @@ export default function OvenFlair() {
 									<Button size="lg">Support This Project</Button>
 								</Link>
 								<a
-									href="https://wa.me/256764969385"
+									href="https://wa.me/256767241074"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
