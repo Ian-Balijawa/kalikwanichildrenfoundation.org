@@ -451,21 +451,21 @@ const videoItems = [
 	},
 	{
 		id: 2,
-		title: "Video 2",
-		description: "Inspiring stories from our scholarship recipients",
-		url: "https://youtube.com/shorts/TUXRciH3vrU?si=mjOWcf_rNouQKQH9",
-	},
-	{
-		id: 3,
 		title: "Video 3",
 		description: "Inspiring stories from our scholarship recipients",
 		url: "https://youtube.com/shorts/csmn_WKc12s?si=VPD7EZTpp9hwOAts"
 	},
 	{
-		id: 4,
-		title: "Video 4",
+		id: 3,
+		title: "Video 3",
 		description: "Inspiring stories from our scholarship recipients",
 		url: "https://youtu.be/z-cRlhl3fIE?si=nYhE09axtowU0X_g"
+	},
+	{
+		id: 3,
+		title: "29 July 2026",
+		description: "Inspiring stories from our scholarship recipients",
+		url: "https://youtu.be/WFzVFVsBWFc?si=nV8xSE72PMPEOMKe"
 	}
 ];
 
