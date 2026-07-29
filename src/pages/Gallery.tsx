@@ -9,7 +9,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 
-const galleryItems = [
+let galleryItems = [
 	{
 		id: 1,
 		title: "Education Program Activities",
@@ -380,11 +380,59 @@ const galleryItems = [
 	},
 ];
 
-// Function to extract YouTube video ID from URL
+
+const galleryItems_2 = Array.from({ length: 28 }, (_, index) => {
+	const imageNumber = String(index + 1).padStart(5, "0");
+
+	return {
+		id: index + 1,
+		title:
+			index < 15
+				? "Education Program Activities"
+				: "Community Events",
+		category: index < 15 ? "education" : "events",
+		date: "2025",
+		description:
+			index < 15
+				? "Students engaged in educational activities."
+				: "Community engagement and event activities.",
+		image: `/images/kcf-image-${imageNumber}.jpeg`,
+	};
+});
+
+galleryItems = [...galleryItems, ...galleryItems_2]
+
 function getYouTubeVideoId(url: string) {
-	const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-	const match = url.match(regExp);
-	return match && match[2].length === 11 ? match[2] : null;
+	try {
+		const parsed = new URL(url);
+
+		// https://youtu.be/<id>
+		if (parsed.hostname === "youtu.be") {
+			return parsed.pathname.slice(1);
+		}
+
+		// https://youtube.com/watch?v=<id>
+		const watchId = parsed.searchParams.get("v");
+		if (watchId) {
+			return watchId;
+		}
+
+		// https://youtube.com/shorts/<id>
+		const shortsMatch = parsed.pathname.match(/^\/shorts\/([^/]+)/);
+		if (shortsMatch) {
+			return shortsMatch[1];
+		}
+
+		// https://youtube.com/embed/<id>
+		const embedMatch = parsed.pathname.match(/^\/embed\/([^/]+)/);
+		if (embedMatch) {
+			return embedMatch[1];
+		}
+
+		return null;
+	} catch {
+		return null;
+	}
 }
 
 // Function to get YouTube thumbnail URL
@@ -397,16 +445,28 @@ function getYouTubeThumbnail(url: string) {
 const videoItems = [
 	{
 		id: 1,
-		title: "School Opening Ceremony",
-		description: "Highlights from our new school opening ceremony",
-		url: "https://www.youtube.com/watch?v=69M8vCpnoCQ",
+		title: "New school plot showcase",
+		description: "Highlights for the New school plot showcase",
+		url: "https://youtube.com/shorts/TUXRciH3vrU?si=efoIU_dPowQXvfpQ",
 	},
 	{
 		id: 2,
-		title: "Student Success Stories",
+		title: "Video 2",
 		description: "Inspiring stories from our scholarship recipients",
-		url: "https://www.youtube.com/watch?v=mqOyO-UCO0k",
+		url: "https://youtube.com/shorts/TUXRciH3vrU?si=mjOWcf_rNouQKQH9",
 	},
+	{
+		id: 3,
+		title: "Video 3",
+		description: "Inspiring stories from our scholarship recipients",
+		url: "https://youtube.com/shorts/csmn_WKc12s?si=VPD7EZTpp9hwOAts"
+	},
+	{
+		id: 4,
+		title: "Video 4",
+		description: "Inspiring stories from our scholarship recipients",
+		url: "https://youtu.be/z-cRlhl3fIE?si=nYhE09axtowU0X_g"
+	}
 ];
 
 const categories = [

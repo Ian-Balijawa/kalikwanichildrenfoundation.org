@@ -232,11 +232,11 @@ export default function About() {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
 						{directors.map((member, index) => (
 							<Card key={index} className="flex flex-col">
-								<div className="relative w-full">
+								<div className="relative w-full h-96 bg-muted">
 									<img
 										src={member.image}
 										alt={member.name}
-										className="w-full h-full object-cover rounded-t-lg"
+										className="w-full h-full object-contain object-center rounded-t-lg"
 									/>
 								</div>
 								<CardHeader>
@@ -267,11 +267,11 @@ export default function About() {
 					</h2>
 					<div className="max-w-2xl mx-auto">
 						<Card className="flex flex-col md:flex-row overflow-hidden">
-							<div className="w-full md:w-1/3">
+							<div className="relative w-full h-96 bg-muted">
 								<img
 									src={anthony.image}
 									alt={anthony.name}
-									className="w-full h-full object-cover min-h-[200px]"
+									className="w-full h-full object-contain object-center rounded-t-lg"
 								/>
 							</div>
 							<CardContent className="p-6 flex-1">
@@ -308,11 +308,11 @@ export default function About() {
 					<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
 						{staff.map((member, index) => (
 							<Card key={index} className="flex flex-col">
-								<div className="relative w-full h-80">
+								<div className="relative w-full h-96 bg-muted">
 									<img
 										src={member.image}
 										alt={member.name}
-										className="w-full h-full object-cover rounded-t-lg"
+										className="w-full h-full object-contain object-center rounded-t-lg"
 									/>
 								</div>
 								<CardHeader>
