@@ -114,7 +114,7 @@ export default function Home() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-4xl font-bold text-primary text-center">
-									45+
+									250+
 								</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center">
@@ -134,7 +134,7 @@ export default function Home() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-4xl font-bold text-primary text-center">
-									3+
+									5+
 								</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center">
@@ -144,7 +144,7 @@ export default function Home() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-4xl font-bold text-primary text-center">
-									2+
+									4+
 								</CardTitle>
 							</CardHeader>
 							<CardContent className="text-center">
