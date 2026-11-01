@@ -10,121 +10,129 @@ import { SignUpData } from '@/types/common';
 const USER_QUERY_KEY = ['user'] as const;
 
 // API functions
-const authApi = ( request: ReturnType<typeof useRequest> ) => ( {
-	signUp: async ( data: SignUpData ): Promise<User> => {
-		const response = await request.post( '/auth/signup', data );
-		return response.data;
-	},
+const authApi = (request: ReturnType<typeof useRequest>) => ({
+  signUp: async (data: SignUpData): Promise<User> => {
+    const response = await request.post('/auth/signup', data);
+    return response.data;
+  },
 
-	login: async ( data: LoginData ): Promise<LoginResponse> => {
-		const response = await request.post( '/auth/login', data );
-		return response.data;
-	},
+  login: async (data: LoginData): Promise<LoginResponse> => {
+    const response = await request.post('/auth/login', data);
+    return response.data;
+  },
 
-	logout: async (): Promise<void> => {
-		await request.get( '/auth/logout' );
-	},
+  logout: async (): Promise<void> => {
+    await request.get('/auth/logout');
+  },
 
-	getCurrentUser: async (): Promise<User> => {
-		const response = await request.get<User>( '/auth/me' );
-		return response.data;
-	},
+  getCurrentUser: async (): Promise<User> => {
+    const response = await request.get<User>('/auth/me');
+    return response.data;
+  },
 
-	sendVerificationEmail: async ( email: string ): Promise<void> => {
-		await request.post( '/auth/verify/email/send', null, { params: { email } } );
-	},
+  sendVerificationEmail: async (email: string): Promise<void> => {
+    await request.post('/auth/verify/email/send', null, { params: { email } });
+  },
 
-	verifyEmail: async ( token: string ): Promise<void> => {
-		await request.post( '/auth/verify/email', null, { params: { token } } );
-	},
+  verifyEmail: async (token: string): Promise<void> => {
+    await request.post('/auth/verify/email', null, { params: { token } });
+  },
 
-	requestPasswordReset: async ( email: string ): Promise<void> => {
-		await request.post( '/auth/password/reset', { email } );
-	},
+  requestPasswordReset: async (email: string): Promise<void> => {
+    await request.post('/auth/password/reset', { email });
+  },
 
-	resetPassword: async ( { token, password }: { token: string; password: string } ): Promise<void> => {
-		await request.post( '/auth/password/create', { password }, { params: { token } } );
-	},
+  resetPassword: async ({
+    token,
+    password,
+  }: {
+    token: string;
+    password: string;
+  }): Promise<void> => {
+    await request.post('/auth/password/create', { password }, { params: { token } });
+  },
 
-	updatePassword: async ( data: { oldPassword: string; newPassword: string } ): Promise<void> => {
-		await request.post( '/auth/password/update', data );
-	},
-} );
+  updatePassword: async (data: { oldPassword: string; newPassword: string }): Promise<void> => {
+    await request.post('/auth/password/update', data);
+  },
+});
 
 export const useAuth = () => {
-	const request = useRequest();
-	const queryClient = useQueryClient();
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
-	const api = authApi( request );
+  const request = useRequest();
+  const queryClient = useQueryClient();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const api = authApi(request);
 
-	// Queries
-	const { data: user, isLoading: isLoadingUser } = useQuery( {
-		queryKey: USER_QUERY_KEY,
-		queryFn: api.getCurrentUser,
-		enabled: false,
-	} );
+  // Queries
+  const { data: user, isLoading: isLoadingUser } = useQuery({
+    queryKey: USER_QUERY_KEY,
+    queryFn: api.getCurrentUser,
+    enabled: false,
+  });
 
-	// Mutations
-	const signup = useMutation( {
-		mutationFn: api.signUp,
-	} );
+  // Mutations
+  const signup = useMutation({
+    mutationFn: api.signUp,
+  });
 
-	const login = useMutation( {
-		mutationFn: api.login,
-		onSuccess: ( response ) => {
-			dispatch( signin( {
-				user: response.data.user,
-				token: response.data.accessToken
-			} ) );
-			navigate( '/' );
-		},
-	} );
+  const login = useMutation({
+    mutationFn: api.login,
+    onSuccess: (response) => {
+      dispatch(
+        signin({
+          user: response.data.user,
+          token: response.data.accessToken,
+        }),
+      );
+      navigate('/');
+    },
+  });
 
-	const logout = useMutation( {
-		mutationFn: api.logout,
-		onSuccess: () => {
-			queryClient.removeQueries( { queryKey: USER_QUERY_KEY } );
-		},
-	} );
+  const logout = useMutation({
+    mutationFn: api.logout,
+    onSuccess: () => {
+      queryClient.removeQueries({ queryKey: USER_QUERY_KEY });
+    },
+  });
 
-	const sendVerificationEmail = useMutation( {
-		mutationFn: api.sendVerificationEmail,
-	} );
+  const sendVerificationEmail = useMutation({
+    mutationFn: api.sendVerificationEmail,
+  });
 
-	const verifyEmail = useMutation( {
-		mutationFn: api.verifyEmail,
-	} );
+  const verifyEmail = useMutation({
+    mutationFn: api.verifyEmail,
+  });
 
-	const requestPasswordReset = useMutation( {
-		mutationFn: api.requestPasswordReset,
-	} );
+  const requestPasswordReset = useMutation({
+    mutationFn: api.requestPasswordReset,
+  });
 
-	const resetPassword = useMutation( {
-		mutationFn: api.resetPassword,
-	} );
+  const resetPassword = useMutation({
+    mutationFn: api.resetPassword,
+  });
 
-	const updatePassword = useMutation( {
-		mutationFn: api.updatePassword,
-	} );
+  const updatePassword = useMutation({
+    mutationFn: api.updatePassword,
+  });
 
-	return {
-		// Current user data
-		user,
-		isLoadingUser,
+  return {
+    // Current user data
+    user,
+    isLoadingUser,
 
-		// Auth mutations
-		signup,
-		login,
-		logout,
+    // Auth mutations
+    signup,
+    login,
+    logout,
 
-		// Email verification
-		sendVerificationEmail,
-		verifyEmail,
+    // Email verification
+    sendVerificationEmail,
+    verifyEmail,
 
-		// Password management
-		requestPasswordReset,
-		resetPassword,
-		updatePassword,
-	};
+    // Password management
+    requestPasswordReset,
+    resetPassword,
+    updatePassword,
+  };
 };

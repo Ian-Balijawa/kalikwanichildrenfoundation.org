@@ -6,45 +6,45 @@ import toast from 'react-hot-toast';
 import { signout } from '@/app/slices/auth';
 
 const BASE_URL = __prod__
-	? import.meta.env.VITE_APP_BASE_URL_PROD
-	: import.meta.env.VITE_APP_BASE_URL_DEV;
+  ? import.meta.env.VITE_APP_BASE_URL_PROD
+  : import.meta.env.VITE_APP_BASE_URL_DEV;
 
 export default function useRequest(_requireAuth: boolean = false): AxiosInstance {
-	const token = useSelector((state: RootState) => state.auth.token);
+  const token = useSelector((state: RootState) => state.auth.token);
 
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const instance = axios.create({
-		baseURL: BASE_URL,
-		headers: { Authorization: `Bearer ${token}` },
-	});
+  const instance = axios.create({
+    baseURL: BASE_URL,
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
-	instance.interceptors.response.use(
-		(response) => {
-			if (Array.isArray(response.data)) {
-				return response;
-			}
+  instance.interceptors.response.use(
+    (response) => {
+      if (Array.isArray(response.data)) {
+        return response;
+      }
 
-			if (!response.data.message) {
-				return response;
-			}
+      if (!response.data.message) {
+        return response;
+      }
 
-			toast.success(
-				typeof response?.data?.message === 'object' ? 'Success' : response.data.message
-			);
-			return response;
-		},
-		(error: AxiosError) => {
-			// @ts-ignore
-			toast.error(error.response.data?.message || 'Operation failed');
+      toast.success(
+        typeof response?.data?.message === 'object' ? 'Success' : response.data.message,
+      );
+      return response;
+    },
+    (error: AxiosError) => {
+      // @ts-ignore
+      toast.error(error.response.data?.message || 'Operation failed');
 
-			// @ts-ignore
-			if (error.response?.data.message === 'Invalid token') {
-				dispatch(signout());
-			}
-			return Promise.reject(error);
-		}
-	);
+      // @ts-ignore
+      if (error.response?.data.message === 'Invalid token') {
+        dispatch(signout());
+      }
+      return Promise.reject(error);
+    },
+  );
 
-	return instance;
+  return instance;
 }
