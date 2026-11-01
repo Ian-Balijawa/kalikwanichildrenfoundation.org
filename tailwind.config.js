@@ -15,7 +15,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: [
-					'Inter var',
+					'Inter',
 					...fontFamily.sans
 				]
 			},
@@ -26,17 +26,17 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#2B6CB0',
-					50: '#EBF8FF',
-					100: '#BEE3F8',
-					200: '#90CDF4',
-					300: '#63B3ED',
-					400: '#4299E1',
-					500: '#3182CE',
-					600: '#2B6CB0',
-					700: '#2C5282',
-					800: '#2A4365',
-					900: '#1A365D',
+					DEFAULT: '#1F5A43',
+					50: '#EFF7F1',
+					100: '#DCEBDD',
+					200: '#B8D7BF',
+					300: '#91BE9D',
+					400: '#65A47B',
+					500: '#3D875E',
+					600: '#1F5A43',
+					700: '#194A38',
+					800: '#143D2F',
+					900: '#103126',
 					foreground: '#FFFFFF'
 				},
 				secondary: {

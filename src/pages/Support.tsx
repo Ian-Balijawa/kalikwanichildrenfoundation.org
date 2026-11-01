@@ -1,184 +1,88 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { ArrowUpRight, Check, Copy, Gift, HandHeart, HeartHandshake, Sprout } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
-const impactExamples = [
-	{
-		amount: "$25",
-		impact: "Provides school supplies for one student for a term",
-	},
-	{
-		amount: "$50",
-		impact: "Supplies seeds and tools for a family's farm plot",
-	},
-	{
-		amount: "$100",
-		impact: "Covers one month of primary school education for two children",
-	},
-	{
-		amount: "$250",
-		impact: "Funds medical supplies for our community health outreach",
-	},
-	{
-		amount: "$500",
-		impact: "Supports teacher training for one school term",
-	},
-	{
-		amount: "$1000",
-		impact: "Helps construct a classroom or community facility",
-	},
+const accounts = [
+	{ currency: "USD", number: "1160000013542", name: "Kalikwani Children's Home (KCH) Limited" },
+	{ currency: "EUR", number: "11600000613440", name: "Kalikwani Children’s Home (KCH)" },
+	{ currency: "UGX", number: "1160000013349", name: "Kalikwani Children’s Home (KCH)" },
 ];
 
-const otherWaysToSupport = [
-	{
-		title: "In-Kind Donations",
-		description: "Donate supplies, equipment, or materials for our programs.",
-		icon: "📦",
-	},
-	{
-		title: "Corporate Matching",
-		description: "Double your impact through your employer's matching gift program.",
-		icon: "🤝",
-	},
-	{
-		title: "Legacy Giving",
-		description: "Include KCSC in your estate planning to create lasting change.",
-		icon: "🌱",
-	},
-	{
-		title: "Fundraise for Us",
-		description: "Start your own fundraising campaign to support our cause.",
-		icon: "💝",
-	},
+const otherWays = [
+	{ title: "Give supplies", description: "Donate supplies, equipment, or materials for our programs.", icon: Gift },
+	{ title: "Partner with us", description: "Work with our team to support children and families in our community.", icon: HeartHandshake },
+	{ title: "Fundraise", description: "Bring people together to support our cause.", icon: HandHeart },
+	{ title: "Support sustainable work", description: "Help us grow projects that support our activities over time.", icon: Sprout },
 ];
 
 export default function Support() {
+	const [copied, setCopied] = useState<string | null>(null);
+	const [copyError, setCopyError] = useState(false);
+
+	async function copyNumber(currency: string, number: string) {
+		try {
+			await navigator.clipboard.writeText(number);
+			setCopied(currency);
+			setCopyError(false);
+		} catch {
+			setCopyError(true);
+			setCopied(null);
+		}
+	}
+
 	return (
 		<div>
 			<section className="bg-muted py-20">
 				<div className="container mx-auto px-4">
-					<h1 className="text-4xl font-bold text-center mb-6">Donate</h1>
-					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
-						Your generosity helps us empower children and communities through education,
-						healthcare, and sustainable development. Thank you for making a difference.
-					</p>
+					<h1 className="mb-6 text-center text-4xl font-bold">Support our cause</h1>
+					<p className="mx-auto max-w-3xl text-center text-lg text-muted-foreground">Your generosity helps us empower children and communities through education, healthcare, and sustainable development. Thank you for making a difference.</p>
 				</div>
 			</section>
 
-			<section className="py-20">
-				<div className="container mx-auto px-4 max-w-4xl">
-					<h2 className="text-3xl font-bold text-center mb-12">How to Donate</h2>
-
-					<Card>
-						<CardHeader>
-							<CardTitle>Bank Transfer Details</CardTitle>
-						</CardHeader>
-
-						<CardContent className="space-y-8">
-							<div className="p-4 bg-muted rounded-lg">
-								<h3 className="text-xl font-semibold mb-4">USD Account</h3>
-								<ul className="space-y-2 text-muted-foreground">
-									<li><strong>Bank:</strong> Housing Finance Bank</li>
-									<li><strong>Customer Number:</strong> 00132494</li>
-									<li><strong>Account Name:</strong> Kalikwani Children's Home (KCH) Limited</li>
-									<li><strong>Account Number:</strong> 1160000013542</li>
-								</ul>
+			<section className="bg-[#fffdf8]">
+				<div className="container mx-auto">
+					<div className="mb-10 max-w-2xl">
+						<h2 className="text-3xl md:text-4xl">Donate by bank transfer</h2>
+						<p className="mt-4 text-lg text-muted-foreground">Choose the account for your currency. All three accounts are held at Housing Finance Bank. If you need help with a transfer, please contact us.</p>
+					</div>
+					<div className="grid gap-5 lg:grid-cols-3">
+						{accounts.map((account) => (
+							<div key={account.currency} className="rounded-2xl border border-[#dce2d6] bg-white p-6 md:p-7">
+								<h3 className="text-2xl">{account.currency} account</h3>
+								<dl className="mt-7 space-y-5 text-sm">
+									<div><dt className="font-semibold text-[#607466]">Bank</dt><dd className="mt-1 font-medium">Housing Finance Bank</dd></div>
+									<div><dt className="font-semibold text-[#607466]">Account name</dt><dd className="mt-1 font-medium">{account.name}</dd></div>
+									<div><dt className="font-semibold text-[#607466]">Customer number</dt><dd className="mt-1 font-medium tabular-nums">00132494</dd></div>
+									<div><dt className="font-semibold text-[#607466]">Account number</dt><dd className="mt-1 break-all text-lg font-bold tabular-nums text-primary">{account.number}</dd></div>
+								</dl>
+								<Button variant="outline" className="mt-7 h-11 w-full rounded-full shadow-none" onClick={() => copyNumber(account.currency, account.number)} aria-label={`Copy ${account.currency} account number`}>
+									{copied === account.currency ? <Check className="mr-2 h-4 w-4" aria-hidden="true" /> : <Copy className="mr-2 h-4 w-4" aria-hidden="true" />}
+									{copied === account.currency ? "Copied" : "Copy account number"}
+								</Button>
 							</div>
-
-							<div className="p-4 bg-muted rounded-lg">
-								<h3 className="text-xl font-semibold mb-4">EURO Account</h3>
-								<ul className="space-y-2 text-muted-foreground">
-									<li><strong>Bank:</strong> Housing Finance Bank</li>
-									<li><strong>Customer Number:</strong> 00132494</li>
-									<li><strong>Account Name:</strong> Kalikwani Children’s Home (KCH)</li>
-									<li><strong>Account Number:</strong> 11600000613440</li>
-								</ul>
-							</div>
-
-							<div className="p-4 bg-muted rounded-lg">
-								<h3 className="text-xl font-semibold mb-4">UGX Account</h3>
-								<ul className="space-y-2 text-muted-foreground">
-									<li><strong>Bank:</strong> Housing Finance Bank</li>
-									<li><strong>Customer Number:</strong> 00132494</li>
-									<li><strong>Account Name:</strong> Kalikwani Children’s Home (KCH)</li>
-									<li><strong>Account Number:</strong> 1160000013349</li>
-								</ul>
-							</div>
-
-							<p className="text-sm text-center text-muted-foreground pt-4">
-								Thank you for your generosity. Every contribution helps transform lives.
-							</p>
-						</CardContent>
-					</Card>
-				</div>
-			</section>
-
-			<section className="py-20 bg-muted">
-				<div className="container mx-auto px-4">
-					<h2 className="text-3xl font-bold text-center mb-12">Your Impact</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{impactExamples.map((example, index) => (
-							<Card key={index}>
-								<CardContent className="p-6">
-									<p className="text-3xl font-bold text-primary mb-2">
-										{example.amount}
-									</p>
-									<p className="text-muted-foreground">{example.impact}</p>
-								</CardContent>
-							</Card>
 						))}
 					</div>
+					<p aria-live="polite" className="mt-4 min-h-6 text-sm text-muted-foreground">{copyError ? "Copying is unavailable here. Select the account number above to copy it." : copied ? `${copied} account number copied.` : ""}</p>
 				</div>
 			</section>
 
-			<section className="py-20">
-				<div className="container mx-auto px-4">
-					<h2 className="text-3xl font-bold text-center mb-12">Other Ways to Support</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-						{otherWaysToSupport.map((way, index) => (
-							<Card key={index}>
-								<CardContent className="p-6">
-									<div className="text-4xl mb-4">{way.icon}</div>
-									<h3 className="text-xl font-semibold mb-2">{way.title}</h3>
-									<p className="text-muted-foreground">{way.description}</p>
-								</CardContent>
-							</Card>
-						))}
+			<section className="bg-muted">
+				<div className="container mx-auto">
+					<h2 className="mb-10 text-3xl md:text-4xl">Other ways to help</h2>
+					<div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+						{otherWays.map((way) => {
+							const Icon = way.icon;
+							return <div key={way.title} className="border-t border-[#c5d4c5] pt-5"><Icon className="mb-5 h-7 w-7 text-primary" strokeWidth={1.7} aria-hidden="true" /><h3 className="text-xl">{way.title}</h3><p className="mt-3 text-muted-foreground">{way.description}</p></div>;
+						})}
 					</div>
 				</div>
 			</section>
 
-			<section className="py-20 bg-muted">
-				<div className="container mx-auto px-4 max-w-4xl text-center">
-					<h2 className="text-3xl font-bold mb-6">Tax Information</h2>
-					<p className="text-lg text-muted-foreground mb-8">
-						Kalikwani Children's Support Centre is a registered non-profit organization.
-						All donations are tax-deductible where applicable. A receipt will be provided.
-					</p>
-				</div>
-			</section>
-
-			<section className="py-20 bg-primary text-primary-foreground">
-				<div className="container mx-auto px-4 text-center">
-					<h2 className="text-3xl font-bold mb-6">Questions About Giving?</h2>
-					<p className="text-xl mb-8 max-w-2xl mx-auto">
-						We are here to help you make the most meaningful contribution possible.
-						Reach out with any questions.
-					</p>
-					<div className="flex justify-center gap-4">
-						<Link to="/contact">
-							<Button size="lg" variant="secondary">
-								Contact Us
-							</Button>
-						</Link>
-						<Button
-							size="lg"
-							variant="outline"
-							className="bg-white/10 hover:bg-white/20"
-						>
-							Download Annual Report
-						</Button>
-					</div>
+			<section className="bg-[#194a38] text-white">
+				<div className="container mx-auto flex flex-col justify-between gap-8 md:flex-row md:items-center">
+					<div><h2 className="text-3xl !text-white md:text-4xl">Questions about giving?</h2><p className="mt-3 max-w-xl text-lg text-[#dce9de]">We are here to help you make the most meaningful contribution possible.</p></div>
+					<Button asChild variant="secondary" size="lg" className="h-12 w-fit rounded-full px-6 shadow-none"><Link to="/contact">Contact us <ArrowUpRight className="ml-2 h-4 w-4" aria-hidden="true" /></Link></Button>
 				</div>
 			</section>
 		</div>

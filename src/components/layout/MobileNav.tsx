@@ -1,134 +1,41 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+const links = [
+	{ to: "/", label: "Home" },
+	{ to: "/about", label: "About" },
+	{ to: "/programs", label: "Programs" },
+	{ to: "/projects", label: "Projects" },
+	{ to: "/gallery", label: "Gallery" },
+	{ to: "/get-involved", label: "Get involved" },
+	{ to: "/contact", label: "Contact" },
+];
 
 export function MobileNav() {
 	const [open, setOpen] = useState(false);
-	const [programsOpen, setProgramsOpen] = useState(false);
-	const [involvedOpen, setInvolvedOpen] = useState(false);
-
 	return (
 		<div className="lg:hidden">
 			<Sheet open={open} onOpenChange={setOpen}>
 				<SheetTrigger asChild>
-					<Button variant="ghost" size="icon" className="lg:hidden">
-						<Menu className="h-6 w-6" />
-						<span className="sr-only">Toggle menu</span>
+					<Button variant="ghost" size="icon" className="h-11 w-11 rounded-full" aria-label="Open menu">
+						<Menu className="h-6 w-6" aria-hidden="true" />
 					</Button>
 				</SheetTrigger>
-				<SheetContent side="right">
-					<nav className="flex flex-col space-y-4">
-						<Link to="/" className="flex items-center space-x-2 mb-4">
-							<span className="text-2xl font-bold text-primary">KCSC</span>
-						</Link>
-
-						<motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-							<Link
-								to="/about"
-								className="block px-2 py-2 text-lg font-medium hover:text-primary"
-								onClick={() => setOpen(false)}
-							>
-								About
-							</Link>
-						</motion.div>
-
-						<Collapsible open={programsOpen} onOpenChange={setProgramsOpen}>
-							<CollapsibleTrigger className="flex w-full items-center justify-between px-2 py-2 text-lg font-medium hover:text-primary">
-								Programs
-								<ChevronDown
-									className={`h-4 w-4 transition-transform ${
-										programsOpen ? "rotate-180" : ""
-									}`}
-								/>
-							</CollapsibleTrigger>
-							<CollapsibleContent className="pl-4 space-y-2">
-								<Link
-									to="/programs"
-									className="block py-2 hover:text-primary"
-									onClick={() => setOpen(false)}
-								>
-									Our Programs
-								</Link>
-								<Link
-									to="/scholarship"
-									className="block py-2 hover:text-primary"
-									onClick={() => setOpen(false)}
-								>
-									Scholarship Program
-								</Link>
-								<Link
-									to="/projects"
-									className="block py-2 hover:text-primary"
-									onClick={() => setOpen(false)}
-								>
-									Current Projects
-								</Link>
-							</CollapsibleContent>
-						</Collapsible>
-
-						<motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-							<Link
-								to="/gallery"
-								className="block px-2 py-2 text-lg font-medium hover:text-primary"
-								onClick={() => setOpen(false)}
-							>
-								Gallery
-							</Link>
-						</motion.div>
-
-						<Collapsible open={involvedOpen} onOpenChange={setInvolvedOpen}>
-							<CollapsibleTrigger className="flex w-full items-center justify-between px-2 py-2 text-lg font-medium hover:text-primary">
-								Get Involved
-								<ChevronDown
-									className={`h-4 w-4 transition-transform ${
-										involvedOpen ? "rotate-180" : ""
-									}`}
-								/>
-							</CollapsibleTrigger>
-							<CollapsibleContent className="pl-4 space-y-2">
-								<Link
-									to="/volunteer"
-									className="block py-2 hover:text-primary"
-									onClick={() => setOpen(false)}
-								>
-									Volunteer With Us
-								</Link>
-								<Link
-									to="/support"
-									className="block py-2 hover:text-primary"
-									onClick={() => setOpen(false)}
-								>
-									Support Our Cause
-								</Link>
-								<Link
-									to="/partnerships"
-									className="block py-2 hover:text-primary"
-									onClick={() => setOpen(false)}
-								>
-									Partnerships
-								</Link>
-							</CollapsibleContent>
-						</Collapsible>
-
-						<motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-							<Link
-								to="/contact"
-								className="block px-2 py-2 text-lg font-medium hover:text-primary"
-								onClick={() => setOpen(false)}
-							>
-								Contact
-							</Link>
-						</motion.div>
-
-						<Link to="/support" onClick={() => setOpen(false)}>
-							<Button variant="secondary" className="w-full">
-								Donate
-							</Button>
-						</Link>
+				<SheetContent side="right" className="w-[min(90vw,380px)] overflow-y-auto border-l-[#e9e5d9] bg-[#fffdf8] px-6 pt-14">
+					<SheetClose asChild><Button variant="ghost" size="icon" className="absolute right-4 top-4 h-10 w-10 rounded-full" aria-label="Close menu"><X className="h-5 w-5" aria-hidden="true" /></Button></SheetClose>
+					<SheetTitle className="mb-7 text-left font-serif text-3xl text-[#193d30]">Explore Kalikwani</SheetTitle>
+					<nav aria-label="Mobile navigation" className="flex flex-col">
+						{links.map(({ to, label }) => (
+							<NavLink key={to} to={to} onClick={() => setOpen(false)} className={({ isActive }) => `border-b border-[#e9e5d9] py-3 text-lg font-semibold ${isActive ? "text-primary" : "text-[#2b4236]"}`}>
+								{label}
+							</NavLink>
+						))}
+						<Button asChild className="mt-8 h-12 rounded-full shadow-none">
+							<Link to="/support" onClick={() => setOpen(false)}>Donate <ArrowUpRight className="ml-2 h-4 w-4" aria-hidden="true" /></Link>
+						</Button>
 					</nav>
 				</SheetContent>
 			</Sheet>

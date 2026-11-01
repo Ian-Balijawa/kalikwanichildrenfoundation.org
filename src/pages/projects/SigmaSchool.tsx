@@ -329,7 +329,7 @@ export default function SigmaSchool() {
                             for their generous support and commitment to education in Uganda. This partnership
                             is transforming lives and creating opportunities for hundreds of children in our community.
                         </p>
-                        <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg text-left">
+                        <div className="rounded-2xl bg-primary/5 p-6 text-left">
                             <p className="text-lg italic">
                                 "Education is the most powerful weapon which you can use to change the world."
                             </p>

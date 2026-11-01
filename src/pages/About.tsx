@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -36,21 +37,37 @@ const coreValues = [
 	},
 ];
 
+const founder = {
+	name: "Samuel Mwesigwa Kalikwani",
+	role: "Founder & Director",
+	image: "/team/samuel-mwesigwa.jpg",
+	lead: "Welcome to Kalikwani Children's Support Centre (KCSC). I am Samuel Mwesigwa, Director and CEO of this organisation, and I am honoured to lead an initiative committed to empowering vulnerable children, strengthening families and transforming communities.",
+	stats: [
+		{ value: "250", label: "Beneficiaries reached" },
+		{ value: "2", label: "Districts served" },
+	],
+	paragraphs: [
+		"At Kalikwani, we believe every child deserves an opportunity to learn, grow, develop their potential and build a better future, regardless of their background or circumstances. Our work is founded on the belief that education, empowerment, compassion and community support are essential to creating lasting change.",
+		"Through our programmes and partnerships, we work to improve the lives of vulnerable children and families across Kamuli and Kaliro Districts in Eastern Uganda. Our initiatives focus on education support, child protection, health and hygiene promotion, vocational skills development and community empowerment. Today, our work reaches approximately 250 beneficiaries, reflecting our continued commitment to making a meaningful difference in the communities we serve.",
+		"Our vision extends beyond providing immediate assistance. We aspire to create sustainable opportunities that enable children and young people to become confident, skilled and independent individuals. We are also committed to strengthening community support systems and creating safer, more supportive environments where every child has the opportunity to thrive.",
+		"To advance this mission, we welcome partnerships and support from individuals, institutions, foundations and organisations that share our commitment to improving children's lives.",
+	],
+	supportTitle: "Your support can help us to:",
+	support: [
+		"Expand access to quality education through school development, learning materials and educational support.",
+		"Establish and strengthen vocational skills training opportunities for young people.",
+		"Improve access to essential healthcare, hygiene and community-based support services.",
+		"Strengthen child protection initiatives and provide safe, supportive environments for vulnerable children.",
+		"Empower families and communities through sustainable development initiatives.",
+	],
+	closing: [
+		"I firmly believe that meaningful change is achieved through collective effort. By working together with committed partners, volunteers, donors and communities, we can break cycles of vulnerability, unlock opportunities and build a brighter future for the next generation.",
+	],
+	tagline: "Together, let us empower children, transform lives and create lasting hope.",
+	thanks: "Thank you for being part of our journey.",
+};
+
 const directors = [
-	{
-		name: "Samuel Mwesigwa",
-		role: "Director & CEO",
-		image: "/team/Sam-Kalikwani-1.png",
-		quote: "Welcome, everyone! I'm Samuel Mwesigwa, CEO and Director of Kalikwani Children's Support Centre. It's an honor to lead this incredible organization dedicated to transforming lives.",
-		details: [
-			"At Kalikwani, we believe in the power of education, empowerment, and love. We've already made a significant impact, supporting over 50 children in accessing education through our partnerships with local schools. But our vision goes beyond just education. We're committed to empowering teenagers with skills and knowledge to thrive in life. Our programs focus on mentorship, leadership development, and vocational training, preparing them for a bright future. But we can't do it alone. We need your support to expand our initiatives, open new schools, hospitals, and homes for the most vulnerable. Your donation will help us:",
-			"Provide educational resources and scholarships",
-			"Establish vocational training centers",
-			"Build hospitals and healthcare facilities",
-			"Create safe homes for homeless children",
-			"Join us in shaping a brighter future for these incredible young minds. Together, let's break the cycle of poverty and create a legacy of hope. Thank you for your support. Let's empower the next generation to soar!",
-		],
-	},
 	{
 		name: "Ivan Waiswa",
 		role: "Director & Chief Advisor",
@@ -136,10 +153,15 @@ export default function About() {
 						About Kalikwani Children's Support Centre (KCSC)
 					</h1>
 					<p className="text-lg text-center text-muted-foreground max-w-3xl mx-auto">
-						Kalikwani Children's Support Centre (KCSC) is a non-profit charitable foundation
-						dedicated to creating positive change in the lives of vulnerable children
-						and teenagers in Kamuli, Uganda.
+						Kalikwani Children's Support Centre (KCSC) is a non-profit charitable
+						foundation dedicated to creating positive change in the lives of vulnerable
+						children and teenagers in Kamuli, Uganda.
 					</p>
+					<nav aria-label="On this page" className="mt-9 flex flex-wrap justify-center gap-2">
+						<a href="#our-story" className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white">Our story</a>
+						<a href="#our-values" className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white">Our values</a>
+						<a href="#our-team" className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white">Our team</a>
+					</nav>
 				</div>
 			</section>
 
@@ -169,7 +191,7 @@ export default function About() {
 			</section>
 
 			{/* History */}
-			<section className="py-20 bg-muted">
+			<section id="our-story" className="scroll-mt-24 py-20 bg-muted">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-8 text-center">Our Story</h2>
 					<div className="max-w-4xl mx-auto">
@@ -190,10 +212,10 @@ export default function About() {
 						</p>
 						<p className="text-lg text-muted-foreground mb-6">
 							Driven by their personal journey and a deep sense of gratitude, they
-							embarked on a mission to establish the Kalikwani Children's Support Centre.
-							With unwavering commitment and an unyielding spirit, they focused on
-							providing hope and empowerment to teenagers, vulnerable children, and
-							those facing homelessness in our community.
+							embarked on a mission to establish the Kalikwani Children's Support
+							Centre. With unwavering commitment and an unyielding spirit, they
+							focused on providing hope and empowerment to teenagers, vulnerable
+							children, and those facing homelessness in our community.
 						</p>
 						<p className="text-lg text-muted-foreground">
 							Kalikwani Children's Support Centre is dedicated to all people with the
@@ -207,7 +229,7 @@ export default function About() {
 			</section>
 
 			{/* Core Values */}
-			<section className="py-20">
+			<section id="our-values" className="scroll-mt-24 py-20">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">Our Core Values</h2>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -225,8 +247,95 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Team */}
-			<section className="py-20 bg-muted">
+			{/* Founder */}
+			<section id="our-team" className="scroll-mt-24 py-20 bg-muted">
+				<div className="container mx-auto px-4">
+					<div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+						{/* Photo and stats */}
+						<div className="lg:col-span-2 lg:sticky lg:top-24">
+							<div className="relative max-w-md mx-auto">
+								<div className="absolute -inset-3 rounded-3xl bg-primary/10 -rotate-2" />
+								<img
+									src={founder.image}
+									alt={founder.name}
+									className="relative w-full aspect-[3/4] object-cover object-top rounded-2xl shadow-xl"
+								/>
+							</div>
+							<div className="max-w-md mx-auto mt-8 text-center lg:text-left">
+								<h3 className="text-3xl font-bold">{founder.name}</h3>
+								<span className="inline-block mt-3 rounded-full bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+									{founder.role}
+								</span>
+								<div className="grid grid-cols-2 gap-4 mt-6">
+									{founder.stats.map((stat) => (
+										<div
+											key={stat.label}
+											className="rounded-xl border bg-background p-4 text-center"
+										>
+											<p className="text-3xl font-bold text-primary">
+												{stat.value}
+											</p>
+											<p className="text-sm text-muted-foreground">
+												{stat.label}
+											</p>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+
+						{/* Message */}
+						<div className="lg:col-span-3 space-y-6">
+							<h2 className="text-3xl md:text-4xl">A message from our founder</h2>
+							<p className="text-xl md:text-2xl leading-relaxed font-medium">
+								{founder.lead}
+							</p>
+
+							<div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+								{founder.paragraphs.map((text, i) => (
+									<p key={i}>{text}</p>
+								))}
+							</div>
+
+							<Card className="bg-background border-0">
+								<CardHeader>
+									<CardTitle className="text-xl">
+										{founder.supportTitle}
+									</CardTitle>
+								</CardHeader>
+								<CardContent>
+									<ul className="space-y-3">
+										{founder.support.map((item, i) => (
+											<li key={i} className="flex gap-3">
+												<span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+													<Check className="h-4 w-4" />
+												</span>
+												<span className="text-muted-foreground">
+													{item}
+												</span>
+											</li>
+										))}
+									</ul>
+								</CardContent>
+							</Card>
+
+							<div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+								{founder.closing.map((text, i) => (
+									<p key={i}>{text}</p>
+								))}
+							</div>
+
+							<div className="rounded-2xl bg-primary p-8 text-primary-foreground">
+								<p className="text-xl font-semibold">{founder.tagline}</p>
+								<p className="mt-2 opacity-90">{founder.thanks}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Directors */}
+			<section className="py-20">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">Meet the Directors</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -244,7 +353,7 @@ export default function About() {
 									<p className="text-primary font-semibold">{member.role}</p>
 								</CardHeader>
 								<CardContent className="flex-grow">
-									<blockquote className="italic text-muted-foreground border-l-4 pl-4 mb-4">
+									<blockquote className="mb-4 border-t border-[#d4dfd2] pt-4 italic text-muted-foreground">
 										{member.quote}
 									</blockquote>
 									<div className="text-muted-foreground space-y-3">
@@ -260,7 +369,7 @@ export default function About() {
 			</section>
 
 			{/* Board Advisor Section */}
-			<section className="py-20">
+			<section className="py-20 bg-muted">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">
 						Board Advisor for International Development
@@ -291,7 +400,7 @@ export default function About() {
 							</CardContent>
 						</Card>
 						<Dialog open={open} onOpenChange={setOpen}>
-							<DialogContent className="max-w-2xl">
+							<DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto">
 								<DialogHeader>
 									<DialogTitle>{modalName}</DialogTitle>
 								</DialogHeader>
@@ -302,6 +411,7 @@ export default function About() {
 				</div>
 			</section>
 
+			{/* Staff */}
 			<section className="py-20">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">Meet the Staff</h2>
@@ -320,7 +430,7 @@ export default function About() {
 									<p className="text-primary font-semibold">{member.role}</p>
 								</CardHeader>
 								<CardContent className="flex-grow">
-									<blockquote className="italic text-muted-foreground border-l-4 pl-4 mb-4">
+									<blockquote className="mb-4 border-t border-[#d4dfd2] pt-4 italic text-muted-foreground">
 										{member.quote}
 									</blockquote>
 									<div className="text-muted-foreground space-y-3">

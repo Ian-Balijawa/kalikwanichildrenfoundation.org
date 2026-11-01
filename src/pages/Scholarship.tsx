@@ -111,9 +111,7 @@ export default function Scholarship() {
 						</p>
 					</div>
 					<div className="flex justify-center gap-4">
-						<a href="/docs/KCSC-Scholarship-Application-Form.docx" download>
-							<Button size="lg">Download Form</Button>
-						</a>
+						<Button asChild size="lg"><a href="/docs/KCF-Scholarship-Application-Form.docx" download>Download form</a></Button>
 						<Link to="/contact">
 							<Button size="lg" variant="outline">
 								Contact Us

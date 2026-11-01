@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ExternalLink, MapPin } from "lucide-react";
 import {
 	Select,
 	SelectContent,
@@ -70,7 +71,17 @@ const socialLinks = [
 export default function Contact() {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// Handle form submission
+		const values = new FormData(e.currentTarget as HTMLFormElement);
+		const name = `${values.get("firstName") || ""} ${values.get("lastName") || ""}`.trim();
+		const subject = `Website enquiry: ${values.get("inquiryType") || "General enquiry"}`;
+		const body = [
+			`Name: ${name}`,
+			`Email: ${values.get("email") || ""}`,
+			`Phone: ${values.get("phone") || "Not provided"}`,
+			"",
+			String(values.get("message") || ""),
+		].join("\n");
+		window.location.href = `mailto:kalikwani.csc2024@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 	};
 
 	return (
@@ -99,6 +110,8 @@ export default function Contact() {
 										<Label htmlFor="firstName">First Name</Label>
 										<Input
 											id="firstName"
+										name="firstName"
+										autoComplete="given-name"
 											placeholder="Enter your first name"
 											required
 										/>
@@ -107,6 +120,8 @@ export default function Contact() {
 										<Label htmlFor="lastName">Last Name</Label>
 										<Input
 											id="lastName"
+										name="lastName"
+										autoComplete="family-name"
 											placeholder="Enter your last name"
 											required
 										/>
@@ -117,6 +132,8 @@ export default function Contact() {
 									<Label htmlFor="email">Email</Label>
 									<Input
 										id="email"
+										name="email"
+										autoComplete="email"
 										type="email"
 										placeholder="Enter your email address"
 										required
@@ -127,6 +144,8 @@ export default function Contact() {
 									<Label htmlFor="phone">Phone (Optional)</Label>
 									<Input
 										id="phone"
+										name="phone"
+										autoComplete="tel"
 										type="tel"
 										placeholder="Enter your phone number"
 									/>
@@ -134,8 +153,8 @@ export default function Contact() {
 
 								<div className="space-y-2">
 									<Label htmlFor="inquiryType">Type of Inquiry</Label>
-									<Select>
-										<SelectTrigger>
+									<Select name="inquiryType">
+										<SelectTrigger aria-label="Type of inquiry">
 											<SelectValue placeholder="Select inquiry type" />
 										</SelectTrigger>
 										<SelectContent>
@@ -152,6 +171,7 @@ export default function Contact() {
 									<Label htmlFor="message">Message</Label>
 									<Textarea
 										id="message"
+										name="message"
 										placeholder="Enter your message"
 										className="min-h-[150px]"
 										required
@@ -159,8 +179,9 @@ export default function Contact() {
 								</div>
 
 								<Button type="submit" className="w-full">
-									Send Message
+								Open Email to Send
 								</Button>
+								<p className="text-sm text-muted-foreground">Your email app will open with your message ready to send.</p>
 							</form>
 						</div>
 
@@ -212,11 +233,11 @@ export default function Contact() {
 							{/* Map */}
 							<div>
 								<h2 className="text-2xl font-bold mb-6">Our Location</h2>
-								<div className="aspect-video bg-muted rounded-lg">
-									{/* Replace with actual map component */}
-									<div className="w-full h-full flex items-center justify-center text-muted-foreground">
-										Map Component
-									</div>
+								<div className="rounded-2xl bg-muted p-7">
+									<MapPin className="mb-4 h-8 w-8 text-primary" aria-hidden="true" />
+									<p className="font-semibold">Busota, Kamuli Municipality</p>
+									<p className="mt-1 text-muted-foreground">Near Busota HC III, Kamuli - Jinja Rd., Uganda</p>
+									<a className="mt-5 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4" href="https://www.google.com/maps/search/?api=1&query=Busota+HC+III+Kamuli+Uganda" target="_blank" rel="noopener noreferrer">Open in Google Maps <ExternalLink className="h-4 w-4" aria-hidden="true" /></a>
 								</div>
 							</div>
 

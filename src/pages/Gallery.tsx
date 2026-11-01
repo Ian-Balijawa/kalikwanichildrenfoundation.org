@@ -451,20 +451,20 @@ const videoItems = [
 	},
 	{
 		id: 2,
-		title: "Video 3",
-		description: "Inspiring stories from our scholarship recipients",
+		title: "Community video",
+		description: "Watch a video from Kalikwani Children's Support Centre.",
 		url: "https://youtube.com/shorts/csmn_WKc12s?si=VPD7EZTpp9hwOAts"
 	},
 	{
 		id: 3,
-		title: "Video 3",
-		description: "Inspiring stories from our scholarship recipients",
+		title: "Community update",
+		description: "Watch a video from Kalikwani Children's Support Centre.",
 		url: "https://youtu.be/z-cRlhl3fIE?si=nYhE09axtowU0X_g"
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "29 July 2026",
-		description: "Inspiring stories from our scholarship recipients",
+		description: "Watch a video from Kalikwani Children's Support Centre.",
 		url: "https://youtu.be/WFzVFVsBWFc?si=nV8xSE72PMPEOMKe"
 	}
 ];
@@ -483,6 +483,7 @@ export default function Gallery() {
 	const [selectedCategory, setSelectedCategory] = useState("all");
 	const [selectedYear, setSelectedYear] = useState("all");
 	const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+	const [visibleCount, setVisibleCount] = useState(12);
 
 	const filteredGallery = galleryItems.filter((item) => {
 		if (selectedCategory !== "all" && item.category !== selectedCategory) {
@@ -493,6 +494,7 @@ export default function Gallery() {
 		}
 		return true;
 	});
+	const visibleGallery = filteredGallery.slice(0, visibleCount);
 
 	return (
 		<div>
@@ -510,9 +512,9 @@ export default function Gallery() {
 			{/* Filters */}
 			<section className="py-8 border-b w-full">
 				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-wrap gap-4 items-center justify-center">
-						<Select value={selectedCategory} onValueChange={setSelectedCategory}>
-							<SelectTrigger className="w-[200px]">
+					<div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+						<Select value={selectedCategory} onValueChange={(value) => { setSelectedCategory(value); setVisibleCount(12); }}>
+							<SelectTrigger aria-label="Filter gallery by category" className="w-full sm:w-[200px]">
 								<SelectValue placeholder="Select Category" />
 							</SelectTrigger>
 							<SelectContent>
@@ -524,8 +526,8 @@ export default function Gallery() {
 							</SelectContent>
 						</Select>
 
-						<Select value={selectedYear} onValueChange={setSelectedYear}>
-							<SelectTrigger className="w-[200px]">
+						<Select value={selectedYear} onValueChange={(value) => { setSelectedYear(value); setVisibleCount(12); }}>
+							<SelectTrigger aria-label="Filter gallery by year" className="w-full sm:w-[200px]">
 								<SelectValue placeholder="Select Year" />
 							</SelectTrigger>
 							<SelectContent>
@@ -537,9 +539,11 @@ export default function Gallery() {
 
 						<Button
 							variant="outline"
+							className="w-full sm:w-auto"
 							onClick={() => {
 								setSelectedCategory("all");
 								setSelectedYear("all");
+								setVisibleCount(12);
 							}}
 						>
 							Reset Filters
@@ -552,41 +556,18 @@ export default function Gallery() {
 			<section className="py-12 w-full">
 				<div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{filteredGallery.map((item) => (
-							<div key={item.id} className="group relative">
-								<div className="aspect-square bg-muted rounded-lg overflow-hidden">
-									{/* Replace with actual image component */}
-									<div
-										className="w-full h-full bg-cover bg-center"
-										style={{ backgroundImage: `url(${item.image})` }}
-									>
-										<div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-											<div className="absolute inset-0 p-6 text-white flex flex-col justify-end">
-												<h3 className="text-lg font-semibold mb-2">
-													{item.title}
-												</h3>
-												<p className="text-sm opacity-80">
-													{item.description}
-												</p>
-												<div className="flex items-center gap-2 mt-4">
-													<span className="text-xs px-2 py-1 bg-white/20 rounded">
-														{
-															categories.find(
-																(c) => c.value === item.category
-															)?.label
-														}
-													</span>
-													<span className="text-xs px-2 py-1 bg-white/20 rounded">
-														{item.date}
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						{visibleGallery.map((item, index) => (
+							<figure key={`${item.image}-${index}`} className="overflow-hidden rounded-2xl bg-white shadow-[0_12px_30px_-26px_rgba(22,50,35,.5)]">
+								<img src={item.image} alt={item.description || item.title} loading="lazy" className="aspect-square w-full object-cover" />
+								<figcaption className="p-5">
+									<h3 className="text-xl">{item.title}</h3>
+									<p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+									<p className="mt-4 text-xs font-semibold text-primary">{categories.find((category) => category.value === item.category)?.label} · {item.date}</p>
+								</figcaption>
+							</figure>
 						))}
 					</div>
+					{filteredGallery.length > visibleCount && <div className="mt-10 text-center"><Button variant="outline" size="lg" className="rounded-full px-7" onClick={() => setVisibleCount((count) => count + 12)}>Show more photos</Button><p className="mt-3 text-sm text-muted-foreground" aria-live="polite">Showing {visibleGallery.length} of {filteredGallery.length} photos</p></div>}
 				</div>
 			</section>
 
@@ -607,8 +588,10 @@ export default function Gallery() {
 											playing={selectedVideo === video.id}
 										/>
 									) : (
-										<div
-											className="w-full h-full bg-cover bg-center cursor-pointer relative"
+										<button
+											type="button"
+											aria-label={`Play ${video.title}`}
+											className="w-full h-full bg-cover bg-center cursor-pointer relative text-left"
 											style={{
 												backgroundImage: `url('${getYouTubeThumbnail(
 													video.url
@@ -628,14 +611,14 @@ export default function Gallery() {
 												</div>
 											</div>
 											<div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-												<h3 className="text-white font-semibold mb-1">
+															<h3 className="!text-white font-semibold mb-1">
 													{video.title}
 												</h3>
 												<p className="text-white/80 text-sm">
 													{video.description}
 												</p>
 											</div>
-										</div>
+										</button>
 									)}
 								</div>
 							</div>
@@ -657,6 +640,7 @@ export default function Gallery() {
 							onClick={() => {
 								setSelectedCategory("all");
 								setSelectedYear("all");
+								setVisibleCount(12);
 							}}
 						>
 							Reset Filters

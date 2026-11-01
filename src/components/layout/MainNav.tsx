@@ -1,82 +1,27 @@
-import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import { NavLink, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-	NavigationMenu,
-	NavigationMenuContent,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+
+const links = [
+	{ to: "/about", label: "About" },
+	{ to: "/programs", label: "Programs" },
+	{ to: "/projects", label: "Projects" },
+	{ to: "/gallery", label: "Gallery" },
+	{ to: "/get-involved", label: "Get involved" },
+	{ to: "/contact", label: "Contact" },
+];
 
 export function MainNav() {
 	return (
-		<nav className="hidden gap-6 lg:flex items-center justify-between w-full">
-			<Link to="/" className="flex items-center space-x-2">
-				<span className="text-2xl font-bold text-primary">
-					<img src="/logo.png" alt="KCSC Logo" className="w-10 h-10" />
-				</span>
-			</Link>
-
-			<NavigationMenu>
-				<NavigationMenuList>
-					<NavigationMenuItem>
-						<Link to="/about">
-							<NavigationMenuLink className="px-4 py-2">About</NavigationMenuLink>
-						</Link>
-					</NavigationMenuItem>
-
-					<NavigationMenuItem>
-						<NavigationMenuTrigger>Programs</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<div className="grid gap-3 p-6 w-[400px]">
-								<Link to="/programs" className="block p-2 hover:bg-accent">
-									Our Programs
-								</Link>
-								<Link to="/scholarship" className="block p-2 hover:bg-accent">
-									Scholarship Program
-								</Link>
-								<Link to="/projects" className="block p-2 hover:bg-accent">
-									Current Projects
-								</Link>
-							</div>
-						</NavigationMenuContent>
-					</NavigationMenuItem>
-
-					<NavigationMenuItem>
-						<Link to="/gallery">
-							<NavigationMenuLink className="px-4 py-2">Gallery</NavigationMenuLink>
-						</Link>
-					</NavigationMenuItem>
-
-					<NavigationMenuItem>
-						<NavigationMenuTrigger>Get Involved</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<div className="grid gap-3 p-6 w-[400px]">
-								<Link to="/volunteer" className="block p-2 hover:bg-accent">
-									Volunteer With Us
-								</Link>
-								<Link to="/support" className="block p-2 hover:bg-accent">
-									Support Our Cause
-								</Link>
-								<Link to="/partnerships" className="block p-2 hover:bg-accent">
-									Partnerships
-								</Link>
-							</div>
-						</NavigationMenuContent>
-					</NavigationMenuItem>
-
-					<NavigationMenuItem>
-						<Link to="/contact">
-							<NavigationMenuLink className="px-4 py-2">Contact</NavigationMenuLink>
-						</Link>
-					</NavigationMenuItem>
-				</NavigationMenuList>
-			</NavigationMenu>
-
-			<Link to="/support">
-				<Button variant="secondary">Donate</Button>
-			</Link>
+		<nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
+			{links.map(({ to, label }) => (
+				<NavLink key={to} to={to} className={({ isActive }) => `rounded-full px-3 py-2 text-sm font-semibold transition-colors hover:bg-[#ecf2e9] hover:text-primary ${isActive ? "bg-[#e8f0e7] text-primary" : "text-[#385448]"}`}>
+					{label}
+				</NavLink>
+			))}
+			<Button asChild className="ml-3 h-11 rounded-full px-5 shadow-none">
+				<Link to="/support">Donate <ArrowUpRight className="ml-2 h-4 w-4" aria-hidden="true" /></Link>
+			</Button>
 		</nav>
 	);
 }

@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// Sample projects data - replace with actual data
+// Summaries for the projects with dedicated detail pages.
 const projects = [
 	{
 		id: 1,
@@ -37,7 +37,6 @@ const projects = [
 			"/construction/17.jpg",
 			"/construction/18.jpg",
 			"/designs/1.jpg",
-			"/designs/12.jpg",
 		],
 		updates: [
 			{
@@ -148,53 +147,10 @@ const projects = [
 		],
 		videoUrl: "https://youtu.be/1WAkx8F5HVs?si=d0eHG0Hr53PGy-l_",
 	},
-	{
-		id: 4,
-		title: "Community Farm Initiative",
-		category: "Agriculture",
-		status: "Ongoing",
-		startDate: "October 2023",
-		endDate: "Ongoing",
-		location: "Busota Community",
-		description:
-			"Community outreach to start October 2025 and will support 50 families, Location kamuli district",
-		budget: "$75,000",
-		progress: 0,
-		images: ["/images/IMG-20250123-WA0129.jpg", "/images/IMG-20250123-WA0128.jpg"],
-		updates: [
-			{
-				date: "February 2024",
-				title: "First Harvest Complete",
-				description: "Successfully completed first harvest of maize and vegetables.",
-			},
-		],
-	},
-	{
-		id: 5,
-		title: "Healthcare Outreach Program",
-		category: "Healthcare",
-		status: "Ongoing",
-		startDate: "January 2026",
-		endDate: "December 2023",
-		location: "Multiple Villages",
-		description: "To start January 2026, and will serve 2,000  people",
-		impact: "It will server over 2,000 community members",
-		budget: "$50,000",
-		progress: 0,
-		images: ["/images/IMG-20250123-WA0127.jpg", "/images/IMG-20250123-WA0126.jpg"],
-		updates: [
-			{
-				date: "December 2023",
-				title: "Program Completion",
-				description:
-					"Successfully concluded the healthcare outreach program, exceeding target beneficiaries.",
-			},
-		],
-	},
 ];
 
-const categories = ["All", "Education", "Agriculture", "Healthcare", "Infrastructure", "Housing"];
-const statuses = ["All", "Ongoing", "Completed", "Planning"];
+const categories = ["All", ...new Set(projects.map((project) => project.category))];
+const statuses = ["All", ...new Set(projects.map((project) => project.status))];
 
 export default function Projects() {
 	const [selectedCategory, setSelectedCategory] = useState("All");
@@ -225,7 +181,7 @@ export default function Projects() {
 					<div className="flex flex-col md:flex-row gap-4 justify-center items-center">
 						<div className="w-full md:w-48">
 							<Select value={selectedCategory} onValueChange={setSelectedCategory}>
-								<SelectTrigger>
+								<SelectTrigger aria-label="Filter projects by category">
 									<SelectValue placeholder="Select Category" />
 								</SelectTrigger>
 								<SelectContent>
@@ -239,7 +195,7 @@ export default function Projects() {
 						</div>
 						<div className="w-full md:w-48">
 							<Select value={selectedStatus} onValueChange={setSelectedStatus}>
-								<SelectTrigger>
+								<SelectTrigger aria-label="Filter projects by status">
 									<SelectValue placeholder="Select Status" />
 								</SelectTrigger>
 								<SelectContent>
@@ -372,6 +328,7 @@ export default function Projects() {
 							</div>
 						))}
 					</div>
+					{filteredProjects.length === 0 && <div className="rounded-2xl bg-muted p-8 text-center"><p className="text-lg font-semibold">No projects match these filters.</p><Button variant="outline" className="mt-4" onClick={() => { setSelectedCategory("All"); setSelectedStatus("All"); }}>Show all projects</Button></div>}
 				</div>
 			</section>
 

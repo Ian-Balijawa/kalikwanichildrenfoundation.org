@@ -3,26 +3,26 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 44 45% 98%;
+    --foreground: 157 25% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 157 25% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 171 68% 41%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --popover-foreground: 157 25% 13%;
+    --primary: 155 49% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 42 70% 91%;
+    --secondary-foreground: 157 25% 13%;
+    --muted: 42 38% 94%;
+    --muted-foreground: 155 13% 33%;
+    --accent: 44 55% 91%;
+    --accent-foreground: 157 25% 13%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 171 68% 41%;
-    --radius: 0.5rem
+    --border: 47 19% 85%;
+    --input: 47 19% 82%;
+    --ring: 155 49% 24%;
+    --radius: 0.875rem
   ;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -74,5 +74,45 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
   }
+}
+
+html { scroll-behavior: smooth; }
+::selection { background: #d8e7c7; color: #183f30; }
+:focus-visible { outline: 3px solid #b57b27; outline-offset: 3px; }
+
+.public-site { overflow: clip; }
+.public-site .container { max-width: 76rem; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+.public-site h1, .public-site h2, .public-site h3 { color: #193d30; font-family: "Iowan Old Style", "Baskerville", Georgia, serif; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; }
+.public-site h1 { line-height: 1.06; }
+.public-site h2 { line-height: 1.14; }
+.public-site section.bg-primary h1, .public-site section.bg-primary h2, .public-site section.bg-primary h3 { color: #fff; }
+.public-site p { text-wrap: pretty; }
+.public-site main > div > section:first-child:not(.home-hero) { padding-block: clamp(4.5rem, 8vw, 7rem); background: #f2eee3; }
+.public-site main > div > section:first-child:not(.home-hero) h1 { max-width: 17ch; margin-inline: auto; font-size: clamp(2.75rem, 5.5vw, 5.5rem); }
+.public-site main > div > section:first-child:not(.home-hero) p { line-height: 1.75; }
+.public-site main > div > section:not(:first-child) { padding-block: clamp(4rem, 7vw, 6.5rem); }
+.public-site .bg-muted { background-color: #f3efe5; }
+.public-site .text-muted-foreground { color: #4c6158; }
+.public-site .bg-card { border-color: #e5e3d9; border-radius: 1rem; box-shadow: 0 10px 35px -28px rgba(16,49,38,.35); }
+.public-site button, .public-site a { -webkit-tap-highlight-color: transparent; }
+.public-site button:active, .public-site a[role="button"]:active { transform: scale(.98); }
+.public-site button { transition: transform 120ms ease-out, background-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; }
+.public-site input, .public-site textarea { border-radius: .75rem; background: #fff; }
+.public-site input { min-height: 2.75rem; }
+.public-site a:not([class]) { text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.public-site footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .site-header { background: #fffdf8 !important; backdrop-filter: none !important; }
+}
+@media (prefers-contrast: more) {
+  .site-header { background: #fffdf8 !important; border-bottom: 2px solid #193d30 !important; }
+  .public-site .text-muted-foreground { color: #263f35; }
 }
