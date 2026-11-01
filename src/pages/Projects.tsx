@@ -246,8 +246,9 @@ export default function Projects() {
 													<img
 														key={index}
 														src={image}
-														alt={`${project.title} - Image ${index + 2
-															}`}
+														alt={`${project.title} - Image ${
+															index + 2
+														}`}
 														className="h-16 w-24 object-cover rounded-md"
 													/>
 												))}
@@ -328,7 +329,23 @@ export default function Projects() {
 							</div>
 						))}
 					</div>
-					{filteredProjects.length === 0 && <div className="rounded-2xl bg-muted p-8 text-center"><p className="text-lg font-semibold">No projects match these filters.</p><Button variant="outline" className="mt-4" onClick={() => { setSelectedCategory("All"); setSelectedStatus("All"); }}>Show all projects</Button></div>}
+					{filteredProjects.length === 0 && (
+						<div className="rounded-2xl bg-muted p-8 text-center">
+							<p className="text-lg font-semibold">
+								No projects match these filters.
+							</p>
+							<Button
+								variant="outline"
+								className="mt-4"
+								onClick={() => {
+									setSelectedCategory("All");
+									setSelectedStatus("All");
+								}}
+							>
+								Show all projects
+							</Button>
+						</div>
+					)}
 				</div>
 			</section>
 

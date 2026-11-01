@@ -9,7 +9,7 @@ const programs = [
 			"Our comprehensive education program provides support to deserving beneficiaries through scholarships, educational materials, and mentoring.",
 		image: "/images/IMG-20250123-WA0125.jpg",
 		stats: [
-			{ label: "Students Supported", value: "45+" },
+			{ label: "Students Supported", value: "250+" },
 			{ label: "Partner Schools", value: "8" },
 			{ label: "Success Rate", value: "90%" },
 		],
@@ -27,8 +27,8 @@ const programs = [
 			"Our farming projects generate income to support the organization's activities while promoting sustainable agriculture practices.",
 		image: "/images/IMG-20250123-WA0124.jpg",
 		stats: [
-			{ label: "Active Projects", value: "3" },
-			{ label: "Beneficiaries", value: "20+" },
+			{ label: "Active Projects", value: "5" },
+			{ label: "Beneficiaries", value: "250+" },
 			{ label: "Revenue Generated", value: "15%" },
 		],
 		features: [
@@ -45,9 +45,9 @@ const programs = [
 			"We connect global volunteers with local communities to share knowledge, skills, and cultural experiences.",
 		image: "/images/IMG-20250123-WA0123.jpg",
 		stats: [
-			{ label: "Volunteers Hosted", value: "5+" },
-			{ label: "Countries", value: "3" },
-			{ label: "Projects", value: "4" },
+			{ label: "Volunteers Hosted", value: "26+" },
+			{ label: "Countries", value: "6" },
+			{ label: "Projects", value: "5" },
 		],
 		features: [
 			"Teaching opportunities",

@@ -2,7 +2,24 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+} from "@/components/ui/dialog";
+
+type Block = string | { list: string[] };
+
+type Profile = {
+	name: string;
+	role: string;
+	image: string;
+	headline?: string;
+	intro: string;
+	body: Block[];
+};
 
 const coreValues = [
 	{
@@ -67,13 +84,13 @@ const founder = {
 	thanks: "Thank you for being part of our journey.",
 };
 
-const directors = [
+const directors: Profile[] = [
 	{
 		name: "Ivan Waiswa",
 		role: "Director & Chief Advisor",
 		image: "/team/Ivan-Waiswa-Advisor-Kalikwani-Childrens-Foundation-683x1024.png",
-		quote: "Dear friends and supporters, As Director and Chief Advisor of Kalikwani Children's Support Centre, I'm privileged to lead a team of dedicated individuals who share a common vision: to create a brighter future for vulnerable children and teenagers.",
-		details: [
+		intro: "Dear friends and supporters, As Director and Chief Advisor of Kalikwani Children's Support Centre, I'm privileged to lead a team of dedicated individuals who share a common vision: to create a brighter future for vulnerable children and teenagers.",
+		body: [
 			"Our journey began with a simple yet powerful idea: that every child deserves access to quality education, healthcare, and a loving home. Today, we're proud to have made a significant impact in the lives of over 50 children, with many more waiting to benefit from our programs. But our work is far from over.",
 			"We need your support to expand our initiatives, to reach more children, and to create a lasting legacy of hope. As a director and chief advisor, I've seen the power of collaboration and the impact of your donations.",
 			"Let us work together to build a future where every child can thrive, where every teenager can access the skills and resources they need to succeed. Your donation is an investment in a child's future, a chance to break the cycle of poverty and create a brighter tomorrow. Join us in shaping a better world, one child at a time. Thank you!",
@@ -83,14 +100,18 @@ const directors = [
 		name: "Jeremiah Buyinza",
 		role: "Director & Permanent Secretary",
 		image: "/team/Jeremiah-Buyinza.png",
-		quote: "I'm Jeremiah Buyinza, Director and Permanent Secretary of Kalikwani Children's Support Centre. It's a privilege to serve this noble organization dedicated to transforming the lives of vulnerable children and teenagers.",
-		details: [
+		intro: "I'm Jeremiah Buyinza, Director and Permanent Secretary of Kalikwani Children's Support Centre. It's a privilege to serve this noble organization dedicated to transforming the lives of vulnerable children and teenagers.",
+		body: [
 			"As Permanent Secretary, I've witnessed firsthand the impact of our programs. We've empowered over 50 children to access education, and countless teenagers have benefited from our skills and empowerment programs. But our work is far from over. We have a vision to expand our reach, opening new schools, hospitals, and homes for those who need it most. We require resources and support to make this vision a reality.",
 			"I urge you to join us in this noble endeavor. Your donation will help us:",
-			"Build new classrooms and educational facilities",
-			"Establish healthcare services and hospitals",
-			"Provide safe homes and orphanages for homeless children",
-			"Empower teenagers with skills and mentorship",
+			{
+				list: [
+					"Build new classrooms and educational facilities",
+					"Establish healthcare services and hospitals",
+					"Provide safe homes and orphanages for homeless children",
+					"Empower teenagers with skills and mentorship",
+				],
+			},
 			"Together, we can create a brighter future for these young lives. Let us unite to break the cycle of poverty and create a legacy of hope. Thank you for your support. Together, we can make a difference!",
 		],
 	},
@@ -98,26 +119,45 @@ const directors = [
 		name: "Benjamin Musasizi",
 		role: "Head of Finance & Administration",
 		image: "/team/IMG-20240708-WA0001.jpg",
-		quote: "Dear esteemed guests and supporters, Am Benjamin Musasizi, As the Head of Finance and Administration at Kalikwani Children's Support Centre, I'm responsible for ensuring that our resources are allocated efficiently and effectively to support our mission.",
-		details: [
+		intro: "Dear esteemed guests and supporters, Am Benjamin Musasizi, As the Head of Finance and Administration at Kalikwani Children's Support Centre, I'm responsible for ensuring that our resources are allocated efficiently and effectively to support our mission.",
+		body: [
 			"I'm proud to report that our financial management has been prudent and transparent, allowing us to maximize the impact of your donations. Every shilling, every dollar, has been invested in creating a brighter future for the children and teenagers under our care.",
 			"Our financial sustainability is crucial to the longevity of our programs. Your support has enabled us to:",
-			"Build a robust financial framework",
-			"Invest in essential infrastructure",
-			"Develop a skilled and dedicated team",
+			{
+				list: [
+					"Build a robust financial framework",
+					"Invest in essential infrastructure",
+					"Develop a skilled and dedicated team",
+				],
+			},
 			"I urge you to continue supporting our cause, knowing that your donation is a sound investment in the future of these young lives. Together, let's build a financially sustainable organization that can continue to transform lives for generations to come. Thank you for your trust and support.",
 		],
 	},
 ];
 
-const staff = [
+const advisors: Profile[] = [
+	{
+		name: "Anthony Zammit",
+		role: "Board Advisor for International Development",
+		image: "/team/anthony-zammit.jpg",
+		intro: "I'm Anthony Zammit, I am proud to be a board member of Kalikwani Children's Support Centre. It's a blessing to be accepted into such a proficient organization in such an important endeavour.",
+		body: [
+			"Dear friend,",
+			"Someone, once said 'Give a fishing rod to a person and he will have food for the rest of his life.  I confess with you that I tried it when I was working in Peru but it never worked because one has to be a fisherman to fish, otherwise he will sell the fishing rod to the first buyer he finds, only to buy some rice with.  I tried it and failed with the chicken pens, I even gave a sewing machine to a promising lady. She sold it. I kind of gave up with them, and I focused on children, creating schools to make them fishermen before I give them the rod, make them farmers before I give them chicken coops, educate them in business and self-esteem before I give them any machine. This is why I created a school in Peru and this is why I am interested to become a member of this group.  Their ideas and motivations are on track. I hope that I will be able to join them in Uganda as I presently live in Malta, my home land. I am 69 years old.",
+			"Our hope is to one day soon, become self sufficient and do not have to depend on any donations but it takes money to start, to build, to become self-reliant.  The whole of Africa, is 'Waking Up' and I am thrilled to be part of all this at this 'very special time in history'. Would YOU like to also be part of it? If you are a company and decide to help us financially, we as an NGO would be able to sign your tax exempt papers. Talk to us, we have many projects laid down to take life! These projects when they become active will give us tools, will give us books, new educational equipment and new life to so many, many students and poor families.  Help us erase the word 'poverty' and change it with dignity. Help us build a small but essential sanitary pad station for so many young ladies, a bee hive to make honey to sell and to give to the children, and so much more! Let us dedicate a project to you and put you on our history books of Kalikwani Children Support Centre.",
+			"Be Blessed\nAnthony Zammit",
+		],
+	},
+];
+
+const staff: Profile[] = [
 	{
 		name: "Jonathan Ndada",
 		role: "Community Mobilizer",
 		image: "/team/staff-856x1024.png",
-		quote: "Unlocking Potential, Unbridling Hope",
-		details: [
-			"On this digital platform, I stand with pride, representing the Kalikwani Children's Support Centre. Our journey has been a testament to the transformative power of community and compassion.",
+		headline: "Unlocking Potential, Unbridling Hope",
+		intro: "On this digital platform, I stand with pride, representing the Kalikwani Children's Support Centre. Our journey has been a testament to the transformative power of community and compassion.",
+		body: [
 			"We have witnessed the resilience of young hearts, the determination of young minds, and the beauty of young souls. We have seen hope kindled, dreams ignited, and futures reshaped.",
 			"Our mission is to nurture, to educate, and to empower. We strive to create a world where every child can laugh, learn, and thrive. A world where every child can become the master of their destiny.",
 			"Together, let us break down barriers, let us bridge gaps, and let us build a brighter tomorrow. Let us unlock the potential within each child, and let us unbridle the hope that resides in every young heart.",
@@ -126,23 +166,72 @@ const staff = [
 	},
 ];
 
+function ProfileCard({
+	profile,
+	onReadMore,
+}: {
+	profile: Profile;
+	onReadMore: (profile: Profile) => void;
+}) {
+	return (
+		<Card className="group flex h-full flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+			<div className="relative aspect-[4/5] overflow-hidden bg-muted">
+				<img
+					src={profile.image}
+					alt={profile.name}
+					loading="lazy"
+					className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+				/>
+				<div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 pt-20">
+					<h3 className="text-xl font-bold leading-tight text-white">{profile.name}</h3>
+					<p className="mt-1 text-sm font-medium text-white/85">{profile.role}</p>
+				</div>
+			</div>
+			<CardContent className="flex flex-1 flex-col p-5">
+				{profile.headline && (
+					<p className="mb-2 font-semibold text-primary">{profile.headline}</p>
+				)}
+				<p className="line-clamp-4 leading-relaxed text-muted-foreground">
+					{profile.intro}
+				</p>
+				<div className="mt-auto pt-5">
+					<Button
+						variant="outline"
+						size="sm"
+						className="w-full"
+						onClick={() => onReadMore(profile)}
+					>
+						Read more
+					</Button>
+				</div>
+			</CardContent>
+		</Card>
+	);
+}
+
+function ProfileGrid({
+	profiles,
+	onReadMore,
+}: {
+	profiles: Profile[];
+	onReadMore: (profile: Profile) => void;
+}) {
+	return (
+		<div className="flex flex-wrap justify-center gap-8">
+			{profiles.map((profile) => (
+				<div
+					key={profile.name}
+					className="w-full sm:w-[calc((100%_-_2rem)/2)] lg:w-[calc((100%_-_4rem)/3)]"
+				>
+					<ProfileCard profile={profile} onReadMore={onReadMore} />
+				</div>
+			))}
+		</div>
+	);
+}
+
 export default function About() {
-	const [open, setOpen] = useState(false);
-	const [modalBio, setModalBio] = useState("");
-	const [modalName, setModalName] = useState("");
-
-	const anthony = {
-		name: "Anthony Zammit",
-		role: "Board Advisor for International Development",
-		image: "/team/anthony-zammit.jpg",
-		bio: `I'm Anthony Zammit, I am proud to be a board member of Kalikwani Children's Support Centre. It's a blessing to be accepted into such a proficient organization in such an important endeavour.\n\nDear friend,\nSomeone, once said 'Give a fishing rod to a person and he will have food for the rest of his life.  I confess with you that I tried it when I was working in Peru but it never worked because one has to be a fisherman to fish, otherwise he will sell the fishing rod to the first buyer he finds, only to buy some rice with.  I tried it and failed with the chicken pens, I even gave a sewing machine to a promising lady. She sold it. I kind of gave up with them, and I focused on children, creating schools to make them fishermen before I give them the rod, make them farmers before I give them chicken coops, educate them in business and self-esteem before I give them any machine. This is why I created a school in Peru and this is why I am interested to become a member of this group.  Their ideas and motivations are on track. I hope that I will be able to join them in Uganda as I presently live in Malta, my home land. I am 69 years old.\n\nOur hope is to one day soon, become self sufficient and do not have to depend on any donations but it takes money to start, to build, to become self-reliant.  The whole of Africa, is 'Waking Up' and I am thrilled to be part of all this at this 'very special time in history'. Would YOU like to also be part of it? If you are a company and decide to help us financially, we as an NGO would be able to sign your tax exempt papers. Talk to us, we have many projects laid down to take life! These projects when they become active will give us tools, will give us books, new educational equipment and new life to so many, many students and poor families.  Help us erase the word 'poverty' and change it with dignity. Help us build a small but essential sanitary pad station for so many young ladies, a bee hive to make honey to sell and to give to the children, and so much more! Let us dedicate a project to you and put you on our history books of Kalikwani Children Support Centre.\n\nBe Blessed\nAnthony Zammit`,
-	};
-
-	const handleViewMore = () => {
-		setModalName(anthony.name);
-		setModalBio(anthony.bio);
-		setOpen(true);
-	};
+	const [active, setActive] = useState<Profile | null>(null);
 
 	return (
 		<div>
@@ -157,10 +246,28 @@ export default function About() {
 						foundation dedicated to creating positive change in the lives of vulnerable
 						children and teenagers in Kamuli, Uganda.
 					</p>
-					<nav aria-label="On this page" className="mt-9 flex flex-wrap justify-center gap-2">
-						<a href="#our-story" className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white">Our story</a>
-						<a href="#our-values" className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white">Our values</a>
-						<a href="#our-team" className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white">Our team</a>
+					<nav
+						aria-label="On this page"
+						className="mt-9 flex flex-wrap justify-center gap-2"
+					>
+						<a
+							href="#our-story"
+							className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white"
+						>
+							Our story
+						</a>
+						<a
+							href="#our-values"
+							className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white"
+						>
+							Our values
+						</a>
+						<a
+							href="#our-team"
+							className="rounded-full border border-[#b9c9b7] px-4 py-2 text-sm font-semibold text-primary hover:bg-white"
+						>
+							Our team
+						</a>
 					</nav>
 				</div>
 			</section>
@@ -338,76 +445,17 @@ export default function About() {
 			<section className="py-20">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">Meet the Directors</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-						{directors.map((member, index) => (
-							<Card key={index} className="flex flex-col">
-								<div className="relative w-full h-96 bg-muted">
-									<img
-										src={member.image}
-										alt={member.name}
-										className="w-full h-full object-contain object-center rounded-t-lg"
-									/>
-								</div>
-								<CardHeader>
-									<CardTitle className="text-2xl">{member.name}</CardTitle>
-									<p className="text-primary font-semibold">{member.role}</p>
-								</CardHeader>
-								<CardContent className="flex-grow">
-									<blockquote className="mb-4 border-t border-[#d4dfd2] pt-4 italic text-muted-foreground">
-										{member.quote}
-									</blockquote>
-									<div className="text-muted-foreground space-y-3">
-										{member.details.map((paragraph, i) => (
-											<p key={i}>{paragraph}</p>
-										))}
-									</div>
-								</CardContent>
-							</Card>
-						))}
-					</div>
+					<ProfileGrid profiles={directors} onReadMore={setActive} />
 				</div>
 			</section>
 
-			{/* Board Advisor Section */}
+			{/* Board Advisor */}
 			<section className="py-20 bg-muted">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">
 						Board Advisor for International Development
 					</h2>
-					<div className="max-w-2xl mx-auto">
-						<Card className="flex flex-col md:flex-row overflow-hidden">
-							<div className="relative w-full h-96 bg-muted">
-								<img
-									src={anthony.image}
-									alt={anthony.name}
-									className="w-full h-full object-contain object-center rounded-t-lg"
-								/>
-							</div>
-							<CardContent className="p-6 flex-1">
-								<h3 className="text-xl font-semibold mb-2">{anthony.name}</h3>
-								<p className="text-primary font-medium mb-4">{anthony.role}</p>
-								<p className="text-muted-foreground whitespace-pre-line mb-4">
-									{anthony.bio.slice(0, 220) + "..."}
-									<Button
-										size="sm"
-										variant="outline"
-										className="ml-2"
-										onClick={handleViewMore}
-									>
-										View More
-									</Button>
-								</p>
-							</CardContent>
-						</Card>
-						<Dialog open={open} onOpenChange={setOpen}>
-							<DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto">
-								<DialogHeader>
-									<DialogTitle>{modalName}</DialogTitle>
-								</DialogHeader>
-								<div className="whitespace-pre-line">{modalBio}</div>
-							</DialogContent>
-						</Dialog>
-					</div>
+					<ProfileGrid profiles={advisors} onReadMore={setActive} />
 				</div>
 			</section>
 
@@ -415,35 +463,65 @@ export default function About() {
 			<section className="py-20">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl font-bold mb-12 text-center">Meet the Staff</h2>
-					<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
-						{staff.map((member, index) => (
-							<Card key={index} className="flex flex-col">
-								<div className="relative w-full h-96 bg-muted">
-									<img
-										src={member.image}
-										alt={member.name}
-										className="w-full h-full object-contain object-center rounded-t-lg"
-									/>
-								</div>
-								<CardHeader>
-									<CardTitle className="text-2xl">{member.name}</CardTitle>
-									<p className="text-primary font-semibold">{member.role}</p>
-								</CardHeader>
-								<CardContent className="flex-grow">
-									<blockquote className="mb-4 border-t border-[#d4dfd2] pt-4 italic text-muted-foreground">
-										{member.quote}
-									</blockquote>
-									<div className="text-muted-foreground space-y-3">
-										{member.details.map((paragraph, i) => (
-											<p key={i}>{paragraph}</p>
-										))}
-									</div>
-								</CardContent>
-							</Card>
-						))}
-					</div>
+					<ProfileGrid profiles={staff} onReadMore={setActive} />
 				</div>
 			</section>
+
+			{/* Profile dialog */}
+			<Dialog open={!!active} onOpenChange={(isOpen) => !isOpen && setActive(null)}>
+				<DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto">
+					{active && (
+						<>
+							<DialogHeader>
+								<div className="flex items-center gap-4">
+									<img
+										src={active.image}
+										alt={active.name}
+										className="h-16 w-16 shrink-0 rounded-full object-cover object-top ring-2 ring-primary/20"
+									/>
+									<div className="text-left">
+										<DialogTitle className="text-2xl">
+											{active.name}
+										</DialogTitle>
+										<DialogDescription className="font-semibold text-primary">
+											{active.role}
+										</DialogDescription>
+									</div>
+								</div>
+							</DialogHeader>
+
+							<div className="space-y-4 leading-relaxed text-muted-foreground">
+								{active.headline && (
+									<p className="text-lg font-semibold text-foreground">
+										{active.headline}
+									</p>
+								)}
+								<blockquote className="border-l-4 border-primary/40 pl-4 italic">
+									{active.intro}
+								</blockquote>
+								{active.body.map((block, i) =>
+									typeof block === "string" ? (
+										<p key={i} className="whitespace-pre-line">
+											{block}
+										</p>
+									) : (
+										<ul key={i} className="space-y-2">
+											{block.list.map((item) => (
+												<li key={item} className="flex gap-3">
+													<span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+														<Check className="h-3 w-3" />
+													</span>
+													<span>{item}</span>
+												</li>
+											))}
+										</ul>
+									),
+								)}
+							</div>
+						</>
+					)}
+				</DialogContent>
+			</Dialog>
 		</div>
 	);
 }
