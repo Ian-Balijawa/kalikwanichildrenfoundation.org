@@ -185,7 +185,7 @@ function ProfileCard({
           src={profile.image}
           alt={profile.name}
           loading="lazy"
-          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 pt-20">
           <h3 className="text-xl font-bold leading-tight text-white">{profile.name}</h3>
@@ -359,7 +359,7 @@ export default function About() {
                 <img
                   src={founder.image}
                   alt={founder.name}
-                  className="relative w-full aspect-[3/4] object-cover object-top rounded-2xl shadow-xl"
+                  className="relative w-full aspect-[3/4] object-cover rounded-2xl shadow-xl"
                 />
               </div>
               <div className="max-w-md mx-auto mt-8 text-center lg:text-left">
@@ -461,7 +461,7 @@ export default function About() {
                   <img
                     src={active.image}
                     alt={active.name}
-                    className="h-16 w-16 shrink-0 rounded-full object-cover object-top ring-2 ring-primary/20"
+                    className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-primary/20"
                   />
                   <div className="text-left">
                     <DialogTitle className="text-2xl">{active.name}</DialogTitle>
